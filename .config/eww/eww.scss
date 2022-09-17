@@ -1,0 +1,19 @@
+$SURFACE0: #313244;
+$BG: #1e1e2e;
+$CRUST: #11111b;
+$GREEN: #a6e3a1;
+$BLUE: #89b4fa;
+$SAPPHIRE: #74c7ec;
+$TEXT: #cdd6f4;
+$SUBTEXT1: #bac2de;
+$MAROON: #eba0ac;
+$RED: #f38ba8;
+
+@import "./bar/eww.scss";
+@import "./menu/eww.scss";
+
+* {
+    padding: 0px;
+    margin: 0px;
+    all: unset;
+}

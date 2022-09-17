@@ -1,0 +1,8 @@
+#! /usr/bin/env python3
+import subprocess
+status = subprocess.getoutput("playerctl status")
+
+if status == "Playing":
+    print('')
+elif status == "Paused" or status == "No players found":
+    print("")

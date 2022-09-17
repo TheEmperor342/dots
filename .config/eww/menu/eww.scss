@@ -1,0 +1,119 @@
+.circ-progress-innertext{
+    font-size: 1.3rem;
+}
+.menu {
+    background-color: $CRUST;
+    border: 1px solid $TEXT;
+    border-radius: 5px;
+    font-family: "CaskaydiaCove Nerd Font";
+}
+.iconMenu {
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: $BG;
+    border-radius: 5px;
+    margin: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.container-buttons {
+    min-height: 75px;
+    background-color: $BG;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.metric scale trough {
+    all: unset;
+    border-radius: 50px;
+    min-height: 3px;
+    min-width: 50px;
+    margin-left: 10px;
+}
+.metric scale trough highlight {
+    all: unset;
+    margin: .1px;
+    background-color: $CRUST;
+    border-radius: 10px;
+}
+.metric scale trough {
+    all: unset;
+    background-color: $TEXT;
+    border-radius: 50px;
+    min-height: 10px;
+    min-width: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.player-container{
+    min-height: 75px;
+    background-color: $BG;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 13px;
+}
+.artist {
+    color: $SUBTEXT1;
+}
+.title {
+    font-size: 16px;
+}
+.player {
+    font-size: 30px;
+}
+.play-pause {
+    font-size: 30px;
+}
+.button-shutdown, .button-reboot {
+    background-color: $MAROON;
+    color: $CRUST;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: 500ms;
+}
+.button-reboot {
+    margin-left: 5px;
+}
+.button-shutdown:hover, .button-reboot:hover {
+    background-color: $RED;
+}
+
+.button-exit {
+    background-color: $SAPPHIRE;
+    color: $CRUST;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-left: 5px;
+    transition: 500ms;
+}
+.button-exit:hover {
+    background-color: $BLUE;
+}
+
+.button-airplane {
+    background-color: $TEXT;
+    color: $CRUST;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: 500ms;
+}
+.button-airplane:hover {
+    background-color: $SUBTEXT1;
+}

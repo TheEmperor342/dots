@@ -1,0 +1,11 @@
+#! /usr/bin/env python3
+import subprocess
+title = subprocess.getoutput("playerctl metadata artist")
+
+if len(title) > 30:
+    title = f"{title[:30]}..."
+
+if title == "No players found":
+    title = ""
+
+print(title)

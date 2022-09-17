@@ -1,0 +1,12 @@
+#! /usr/bin/env python3
+import subprocess
+player = str(subprocess.getoutput("playerctl -l")).split("\n")[0]
+
+if player.startswith('vlc'):
+    print('嗢')
+elif player.startswith('spotify'):
+    print('')
+elif player.startswith('firefox'):
+    print('')
+else:
+    print('')

@@ -1,0 +1,8 @@
+#! /usr/bin/env python3
+import subprocess
+title = subprocess.getoutput("playerctl metadata title")
+
+if len(title) > 20:
+    title = f"{title[:20]}..."
+
+print(title)

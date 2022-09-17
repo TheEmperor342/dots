@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+printf "%.2f\n" $(top -bn1 | grep load | awk '{printf "%.2f", $(NF-2)}')

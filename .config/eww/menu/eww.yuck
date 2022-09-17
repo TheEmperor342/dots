@@ -1,0 +1,80 @@
+(defpoll brightness :interval "1s" "brightnessctl g")
+(defpoll cpu :interval "1s" "scripts/getcpu")
+(defpoll volume :interval "1s" "scripts/getvol")
+(defpoll play :interval "0.5s" "scripts/playicon")
+(defpoll title :interval "0.5s" "echo \"$(scripts/title) $(scripts/player)\"")
+; (defpoll player :interval "0.5s" "scripts/player")
+(defpoll artist :interval "0.5s" "scripts/artist")
+
+(defwidget yes []
+  (box
+    :orientation "v"
+    :space-evenly: false
+    (box
+      :class "container"
+      :orientation "v"
+      :space-evenly true
+      (box
+        :orientation "h"
+        :space-evenly false
+        (metric
+          :label " "
+          :value volume
+          :onchange "amixer -D pulse sset Master {}%"
+        )
+        (box "${volume}%")
+      )
+      
+      (box
+        :orientation "h"
+        :space-evenly false
+        (metric
+          :label "盛 "
+          :value "${(brightness / 187) * 100}"
+        :onchange "brightnessctl s {}%")
+        (box "${round((brightness / 187) * 100, 0)}%")
+      )
+    )
+    (box :class "player-container" :orientation 'v' :space-evenly "false"
+      (box
+        :orientation "v"
+        :space-evenly false
+        (label :text title :class "title")
+        (label :text artist :class "artist")
+        (box :orientation 'h'
+          (button :class "play-pause" :onclick "playerctl previous" "ﭢ")
+          (button :class "play-pause" :onclick "playerctl play-pause" play)
+          (button :class "play-pause" :onclick "playerctl next" "ﭠ")
+        )
+      ))
+    (box :class "container-buttons" :orientation "v" :space-evenly true
+      (box
+        (button :class "button-shutdown" :onclick "shutdown now" "")
+        (button :class "button-reboot" :onclick "reboot" "ﰇ")
+        (button :class "button-exit" :onclick "bspc quit" " "))
+      (box
+        (button :class "button-airplane" :onclick "rfkill toggle all" "")
+      ))
+  )
+)
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+    :class "metric"
+    :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+      :max 101
+      :active {onchange != ""}
+      :value value
+    :onchange onchange)))
+
+(defwindow menu
+  :monitor 0
+  :stacking "bg"
+  :windowtype "dock"
+  :geometry (geometry :x "-8%"
+    :y "6%"
+  :anchor "top right")
+  :reserve (struts :side "top" :distance "4%")
+  (yes))
