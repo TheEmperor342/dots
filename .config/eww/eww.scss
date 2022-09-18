@@ -8,9 +8,11 @@ $TEXT: #cdd6f4;
 $SUBTEXT1: #bac2de;
 $MAROON: #eba0ac;
 $RED: #f38ba8;
+$PEACH: #fab387;
 
-@import "./bar/eww.scss";
-@import "./menu/eww.scss";
+@import "./bar/bar.scss";
+@import "./menu/menu.scss";
+@import "./player/player.scss";
 
 * {
     padding: 0px;

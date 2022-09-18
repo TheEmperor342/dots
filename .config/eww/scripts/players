@@ -1,0 +1,42 @@
+#! /usr/bin/env python3
+import subprocess, time
+
+players = subprocess.getoutput("playerctl -l").split('\n')
+icons = [("" if subprocess.getoutput(f"playerctl status --player={k}") == "Playing" else "" ) for k in players] if players != ["No players found"] else ""
+client = []
+for i in players:
+    if i.startswith('vlc'):
+        client.append('嗢')
+    elif i.startswith('spotify'):
+        client.append('')
+    elif i.startswith('firefox'):
+        client.append('')
+    else:
+        client.append('')
+
+title = [subprocess.getoutput(f"playerctl metadata title --player={k}") for k in players] if players != ["No players found"] else players
+for i in range(len(title)):
+    if len(title[i]) > 20:
+        title[i] = f"{title[i][:20]}..."
+
+artists = [subprocess.getoutput(f"playerctl metadata artist --player={k}") for k in players] if players != ["No players found"] else ""
+
+widget = "(box :orientation 'v'\n"
+for i in range(len(title)):
+    widget += f"""
+(box :class "player-container" :orientation 'v' :space-evenly "false"
+    (box
+    :orientation "v"
+    :space-evenly false
+        (label :text "{title[i]} {client[i]}" :class "title")
+        (label :text "{artists[i]}" :class "artist")
+        (box :orientation 'h'
+            (button :class "play-pause" :onclick "playerctl previous --player={players[i]}" "ﭢ")
+            (button :class "play-pause" :onclick "playerctl play-pause --player={players[i]}" "{icons[i]}")
+            (button :class "play-pause" :onclick "playerctl next --player={players[i]}" "ﭠ")
+        )
+    )
+)\n
+"""
+widget += ")"
+print(widget)

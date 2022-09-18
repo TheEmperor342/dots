@@ -1,0 +1,32 @@
+.player-container{
+    min-height: 75px;
+    min-width: 250px;
+    background-color: $BG;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 13px;
+    font-family: "CaskaydiaCove NerdFont";
+}
+.artist {
+    color: $SUBTEXT1;
+}
+.title {
+    font-size: 16px;
+}
+.player {
+    font-size: 30px;
+}
+.play-pause {
+    font-size: 30px;
+}
+.player-window {
+    padding: 10px;
+    padding-top: 27px;
+    background-color: $CRUST;
+    border-radius: 5px;
+    border: 1px solid $TEXT;
+}

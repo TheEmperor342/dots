@@ -22,7 +22,7 @@
     padding-right: 20px;
 }
 .container-buttons {
-    min-height: 75px;
+    min-height: 110px;
     background-color: $BG;
     border-radius: 5px;
     margin-left: 20px;
@@ -55,29 +55,7 @@
     margin-right: 10px;
 }
 
-.player-container{
-    min-height: 75px;
-    background-color: $BG;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-size: 13px;
-}
-.artist {
-    color: $SUBTEXT1;
-}
-.title {
-    font-size: 16px;
-}
-.player {
-    font-size: 30px;
-}
-.play-pause {
-    font-size: 30px;
-}
+
 .button-shutdown, .button-reboot {
     background-color: $MAROON;
     color: $CRUST;

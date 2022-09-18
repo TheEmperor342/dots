@@ -3,13 +3,12 @@
 (defpoll volume :interval "1s" "scripts/getvol")
 (defpoll play :interval "0.5s" "scripts/playicon")
 (defpoll title :interval "0.5s" "echo \"$(scripts/title) $(scripts/player)\"")
-; (defpoll player :interval "0.5s" "scripts/player")
 (defpoll artist :interval "0.5s" "scripts/artist")
 
 (defwidget yes []
   (box
     :orientation "v"
-    :space-evenly: false
+    :space-evenly false
     (box
       :class "container"
       :orientation "v"
@@ -35,18 +34,7 @@
         (box "${round((brightness / 187) * 100, 0)}%")
       )
     )
-    (box :class "player-container" :orientation 'v' :space-evenly "false"
-      (box
-        :orientation "v"
-        :space-evenly false
-        (label :text title :class "title")
-        (label :text artist :class "artist")
-        (box :orientation 'h'
-          (button :class "play-pause" :onclick "playerctl previous" "ﭢ")
-          (button :class "play-pause" :onclick "playerctl play-pause" play)
-          (button :class "play-pause" :onclick "playerctl next" "ﭠ")
-        )
-      ))
+    
     (box :class "container-buttons" :orientation "v" :space-evenly true
       (box
         (button :class "button-shutdown" :onclick "shutdown now" "")

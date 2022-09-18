@@ -1,2 +1,3 @@
-(include "./bar/eww.yuck")
-(include "./menu/eww.yuck")
+(include "./bar/bar.yuck")
+(include "./menu/menu.yuck")
+(include "./player/player.yuck")

@@ -17,7 +17,9 @@
       (button :class "quickLaunch" :onclick "firefox" "")
       (button :class "quickLaunch" :onclick "code" "")
     )
-    (sidestuff)))
+    (box :orientation "h" :space-evenly false :halign "end"
+      (button :class "playerBtn" :onclick "eww open player --toggle" "")
+      (sidestuff))))
 
 (defwidget icon []
   (box :class "icon" :orientation "h" :space-evenly false :halign "start"
