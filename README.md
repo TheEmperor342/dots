@@ -8,6 +8,9 @@ bspwm-rounded-corners sxhkd nitrogen dunst picom kitty eww brightnessctl playerc
 
 [rofi config](https://github.com/catppuccin/rofi)
 
-![image](https://user-images.githubusercontent.com/83999665/190866507-b66d14d1-7bf9-468d-889c-148fae20fb5c.png)
+![image](https://user-images.githubusercontent.com/83999665/190917101-938d034f-72e3-4bdc-afd0-8c1a9cbc8148.png)
 
-![image](https://user-images.githubusercontent.com/83999665/190866515-9c32ee8d-3e3f-4049-8420-9e579f4f521e.png)
+![image](https://user-images.githubusercontent.com/83999665/190917114-315b3155-0524-4bf4-acea-002e4c50b9e0.png)
+
+![image](https://user-images.githubusercontent.com/83999665/190917150-de96660d-2881-405f-9148-7f29c9325b5d.png)
+
