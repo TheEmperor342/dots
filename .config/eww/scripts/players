@@ -19,8 +19,7 @@ for i in range(len(title)):
     if len(title[i]) > 20:
         title[i] = f"{title[i][:20]}..."
 
-artists = [subprocess.getoutput(f"playerctl metadata artist --player={k}") for k in players] if players != ["No players found"] else ""
-
+artists = [subprocess.getoutput(f"playerctl metadata artist --player={k}") for k in players] if players != ["No players found"] else [""]
 widget = "(box :orientation 'v'\n"
 for i in range(len(title)):
     widget += f"""
