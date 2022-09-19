@@ -1,9 +1,6 @@
 (defpoll brightness :interval "1s" "brightnessctl g")
 (defpoll cpu :interval "1s" "scripts/getcpu")
 (defpoll volume :interval "1s" "scripts/getvol")
-(defpoll play :interval "0.5s" "scripts/playicon")
-(defpoll title :interval "0.5s" "echo \"$(scripts/title) $(scripts/player)\"")
-(defpoll artist :interval "0.5s" "scripts/artist")
 
 (defwidget yes []
   (box
