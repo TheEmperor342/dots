@@ -1,5 +1,5 @@
 #! /usr/bin/env python3
-import subprocess, time
+import subprocess, time, os
 
 players = subprocess.getoutput("playerctl -l").split('\n')
 icons = [("" if subprocess.getoutput(f"playerctl status --player={k}") == "Playing" else "" ) for k in players] if players != ["No players found"] else ""
@@ -15,24 +15,24 @@ for i in players:
         client.append('')
 
 title = [subprocess.getoutput(f"playerctl metadata title --player={k}") for k in players] if players != ["No players found"] else players
-for i in range(len(title)):
-    if len(title[i]) > 20:
-        title[i] = f"{title[i][:20]}..."
-
+bslash = "\\"
 artists = [subprocess.getoutput(f"playerctl metadata artist --player={k}") for k in players] if players != ["No players found"] else [""]
 widget = "(box :orientation 'v'\n"
 for i in range(len(title)):
     widget += f"""
-(box :class "player-container" :orientation 'v' :space-evenly "false"
+(box :class "player-container" :orientation 'h' :space-evenly false
+    (box :class "cover" :style "background: url(\\"{subprocess.getoutput(f'playerctl metadata mpris:artUrl --player={players[i]}')}\\"); background-size: cover;")
     (box
+    :class "panel"
     :orientation "v"
     :space-evenly false
-        (label :text "{title[i]} {client[i]}" :class "title")
-        (label :text "{artists[i]}" :class "artist")
-        (box :orientation 'h'
-            (button :class "play-pause" :onclick "playerctl previous --player={players[i]}" "ﭢ")
+        (label :limit-width 25 :text "{title[i].replace('"', f'{bslash}"') if title[i].replace('"', f'{bslash}"') != "No player could handle this command" else "Unknown"}" :class "title")
+        (label :text "{artists[i].replace('"', f'{bslash}"') if artists[i].replace('"', f'{bslash}"') != "No player could handle this command" else "Unknown"}" :class "artist")
+        (box :orientation 'h' :style "margin-top: 5px"
+            {f'(label :text "{client[i]}" :style "font-size: 25px;" :tooltip "")' if client[i] != "" else ""}
+            (button :class "play-pause" :onclick "playerctl previous --player={players[i]}" "玲")
             (button :class "play-pause" :onclick "playerctl play-pause --player={players[i]}" "{icons[i]}")
-            (button :class "play-pause" :onclick "playerctl next --player={players[i]}" "ﭠ")
+            (button :class "play-pause" :onclick "playerctl next --player={players[i]}" "怜")
         )
     )
 )\n

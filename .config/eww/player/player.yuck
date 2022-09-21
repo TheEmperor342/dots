@@ -1,7 +1,7 @@
 (defpoll cont :interval "0.5s" "scripts/players")
 
 (defwidget player_ []
-  (box :class "player-window"
+  (box :class "player-window" :space-evenly true
     (literal :content cont)
   )
 )
@@ -10,7 +10,7 @@
   :monitor 0
   :stacking "bg"
   :windowtype "dock"
-  :geometry (geometry :x "-17%"
+  :geometry (geometry :x "-13%"
     :y "6%"
   :anchor "top right")
   :reserve (struts :side "top" :distance "4%")
