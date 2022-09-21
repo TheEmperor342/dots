@@ -12,5 +12,4 @@ bspwm-rounded-corners sxhkd nitrogen dunst picom kitty eww brightnessctl playerc
 
 ![image](https://user-images.githubusercontent.com/83999665/190917114-315b3155-0524-4bf4-acea-002e4c50b9e0.png)
 
-![image](https://user-images.githubusercontent.com/83999665/190917150-de96660d-2881-405f-9148-7f29c9325b5d.png)
-
+![image](https://user-images.githubusercontent.com/83999665/191451330-514be959-10e5-44e7-a28f-046c9c52610e.png)
