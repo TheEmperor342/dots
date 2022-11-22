@@ -27,11 +27,8 @@ set shiftwidth=2
 " PLUGINS
 " ===========================
 call plug#begin()
-Plug 'arcticicestudio/nord-vim'
 Plug 'preservim/nerdtree'
-Plug 'dracula/vim'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'andweeb/presence.nvim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -40,11 +37,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-source $HOME/.config/nvim/plug-config/coc.vim
-
 " CHANGE THEME
 " ===========================
 colorscheme catppuccin
 let g:airline_theme='dracula'
-
-autocmd VimEnter * NERDTree
