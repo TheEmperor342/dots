@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /bin/sh
 
 aa=" "
   if [ $(bspc query -D -d focused --names | grep "$1") ]; then

@@ -1,12 +1,12 @@
 # Dotfiles
-My configuration for bspwm (rounded corners fork)
+My configuration for bspwm
 
 # Packages needed
 ```
-bspwm-rounded-corners sxhkd nitrogen dunst picom kitty eww brightnessctl playerctl bluman python3 stalonetray
+bspwm sxhkd nitrogen dunst picom kitty eww brightnessctl playerctl blueman python stalonetray nerd-fonts-cascadia-code
 ```
 
-[rofi config](https://github.com/catppuccin/rofi)
+I have laptop so I also use [gestures](https://aur.archlinux.org/packages/gestures) and [tlp](https://wiki.archlinux.org/title/TLP)
 
 ![image](https://user-images.githubusercontent.com/83999665/190917101-938d034f-72e3-4bdc-afd0-8c1a9cbc8148.png)
 

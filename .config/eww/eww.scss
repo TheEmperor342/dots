@@ -1,5 +1,6 @@
 $SURFACE0: #313244;
 $BG: #1e1e2e;
+$OVERLAY0: #6c7086;
 $CRUST: #11111b;
 $GREEN: #a6e3a1;
 $BLUE: #89b4fa;
@@ -12,7 +13,7 @@ $PEACH: #fab387;
 
 @import "./bar/bar.scss";
 @import "./menu/menu.scss";
-@import "./player/player.scss";
+@import "./time/time.scss";
 
 * {
     padding: 0px;

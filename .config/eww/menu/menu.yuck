@@ -1,44 +1,65 @@
 (defpoll brightness :interval "1s" "brightnessctl g")
 (defpoll cpu :interval "1s" "scripts/getcpu")
 (defpoll volume :interval "1s" "scripts/getvol")
+(defpoll title :interval "1s" "scripts/player.py --title")
+(defpoll artist :interval "1s" "scripts/player.py --artist")
+(defpoll status :interval "1s" "scripts/player.py --status")
 
 (defwidget yes []
   (box
     :orientation "v"
     :space-evenly false
     (box
-      :class "container"
       :orientation "v"
-      :space-evenly true
+      :space-evenly false
       (box
-        :orientation "h"
+        :class "container"
+        :orientation "v"
         :space-evenly false
-        (metric
-          :label " "
-          :value volume
-          :onchange "amixer -D pulse sset Master {}%"
+        (box
+          :orientation "h"
+          :space-evenly false
+          (metric
+            :label " "
+            :value volume
+            :onchange "amixer -D pulse sset Master {}%"
+          )
+          (box "${volume}%")
         )
-        (box "${volume}%")
-      )
-      
+        
+        (box
+          :orientation "h"
+          :space-evenly false
+          (metric
+            :label "盛 "
+            :value "${(brightness / 187) * 100}"
+          :onchange "brightnessctl s {}%")
+          (box "${round((brightness / 187) * 100, 0)}%")
+        )
+      ))
+    (box :class "player-container" :orientation 'h' :space-evenly false
+      (box :class "cover" :style "background: url(\"/home/emperor/.config/eww/images/spotify.svg\"); background-size: cover; background-position: center;")
       (box
-        :orientation "h"
+        :class "panel"
+        :orientation "v"
         :space-evenly false
-        (metric
-          :label "盛 "
-          :value "${(brightness / 187) * 100}"
-        :onchange "brightnessctl s {}%")
-        (box "${round((brightness / 187) * 100, 0)}%")
+        (label :limit-width 17 :text "${title == '' ? 'Not playing' : title}" :class "title")
+        (label :text artist :limit-width 17 :class "artist")
+        (box :orientation 'h' :style "margin-top: 5px"
+          (button :class "play-pause" :onclick "playerctl previous --player=spotify" "玲")
+          (button :class "play-pause" :onclick "playerctl play-pause --player=spotify" "${status == 'Playing' ? '':''}")
+          (button :class "play-pause" :onclick "playerctl next --player=spotify" "怜")
+        )
       )
     )
     
-    (box :class "container-buttons" :orientation "v" :space-evenly true
+    (box :class "container-buttons" :orientation "v" :space-evenly false
       (box
         (button :class "button-shutdown" :onclick "shutdown now" "")
         (button :class "button-reboot" :onclick "reboot" "ﰇ")
         (button :class "button-exit" :onclick "bspc quit" " "))
       (box
-        (button :class "button-airplane" :onclick "rfkill toggle all" "")
+        (button :class "button-airplane" :onclick "rfkill toggle all && ${EWW_CMD}" "")
       ))
   )
 )

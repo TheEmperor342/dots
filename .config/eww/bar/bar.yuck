@@ -1,3 +1,5 @@
+(defpoll bat :interval "15s" "./scripts/bat.py")
+(defpoll ram :interval "15s" "./scripts/getram")
 (deflisten wsI "scripts/workspace 1")
 (deflisten wsII "scripts/workspace 2")
 (deflisten wsIII "scripts/workspace 3")
@@ -14,28 +16,25 @@
     (box :orientation "h" :space-evenly false :halign "start"
       (icon)
       (workspaces)
-      (button :class "quickLaunch" :onclick "firefox" "")
       (button :class "quickLaunch" :onclick "code" "")
     )
     (box :orientation "h" :space-evenly false :halign "end"
-      (button :class "playerBtn" :onclick "eww open player --toggle" "")
       (sidestuff))))
 
 (defwidget icon []
   (box :class "icon" :orientation "h" :space-evenly false :halign "start"
     (button :onclick "rofi -show drun &" "bspwm")))
 
-(defpoll bat :interval "15s" "./scripts/bat.py")
-(defpoll ram :interval "15s" "./scripts/getram")
 (defwidget sidestuff []
-  (eventbox :onclick "eww open menu --toggle"
-    (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-      
-      (box :class "c1" :orientation "h" :space-evenly false :halign "end"
-        (box "塞 ${ram}%  ")
-        (box "${bat}  ")
-      )
-      (box :class "time" time))))
+  (box
+    (eventbox :onclick "eww open menu --toggle"
+      (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+        
+        (box :class "c1" :orientation "h" :space-evenly false :halign "end"
+          (box "塞 ${ram}%  ")
+          (box "${bat}  ")
+        )
+        (box :class "time" time)))))
 
 (defwidget workspaces []
   (box :class "workspaces" :orientation "h" :space-evenly true :spacing 10 :halign "start"
@@ -52,7 +51,7 @@
 )
 
 (defpoll time :interval "10s"
-"date '+%H:%M %b %d, %Y'")
+"date '+%I:%M %p %b %d, %Y'")
 
 (defwindow bar
   :monitor 0

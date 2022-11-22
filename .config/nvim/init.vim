@@ -38,7 +38,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'ap/vim-css-color'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 source $HOME/.config/nvim/plug-config/coc.vim
@@ -46,5 +45,6 @@ source $HOME/.config/nvim/plug-config/coc.vim
 " CHANGE THEME
 " ===========================
 colorscheme catppuccin
+let g:airline_theme='dracula'
 
 autocmd VimEnter * NERDTree

@@ -4,7 +4,7 @@
 	color: $TEXT;
 	font-family: "CaskaydiaCove Nerd Font";
 	padding: 10px;
-	border: 1px solid $TEXT;
+	border: 1px solid $SURFACE0;
 }
 .c1 {
 	background-color: $GREEN;
@@ -52,16 +52,15 @@
 	margin-right: 10px;
 }
 .sidestuff slider {
-  all: unset;
-  color: $MAROON;
+	all: unset;
+	color: $MAROON;
 }
-
 
 .label-ram {
-  font-size: large;
+	font-size: large;
 }
 .workspaces {
-  margin-left: 5px;
+	margin-left: 5px;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	padding-left: 10px;
@@ -72,11 +71,14 @@
 }
 
 .time {
-  background-color: $MAROON;
-  color: $BG;
-  margin-top: 5px;
+	background-color: $MAROON;
+	color: $BG;
+	margin-top: 5px;
 	margin-bottom: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
-  border-radius: 5px;
+	border-radius: 5px;
+}
+.layoutSwitcher {
+	min-width: 10px;
 }
