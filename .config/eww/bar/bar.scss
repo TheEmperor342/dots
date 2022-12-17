@@ -1,15 +1,15 @@
 .bar {
-	border-radius: 5px;
-	background-color: $BG;
+	border-radius: 15px;
+	background-color: $CRUST_T;
 	color: $TEXT;
 	font-family: "CaskaydiaCove Nerd Font";
 	padding: 10px;
-	border: 1px solid $SURFACE0;
+	border: 1px solid $SURFACE0_T;
 }
 .c1 {
 	background-color: $GREEN;
 	color: $BG;
-	border-radius: 5px;
+	border-radius: 7px;
 	padding-left: 20px;
 	margin-top: 5px;
 	margin-bottom: 5px;
@@ -22,7 +22,7 @@
 	font-size: 1.2rem;
 	margin-top: 5px;
 	margin-bottom: 5px;
-	border-radius: 5px;
+	border-radius: 7px;
 	padding-left: 10px;
 	padding-right: 15px;
 }
@@ -33,7 +33,7 @@
 	font-size: 1.2rem;
 	margin-top: 5px;
 	margin-bottom: 5px;
-	border-radius: 5px;
+	border-radius: 7px;
 	padding-left: 10px;
 	padding-right: 15px;
 }
@@ -45,11 +45,11 @@
 	margin-bottom: 5px;
 	font-family: 'sucklessfont_v2.1';
 	background-color: $TEXT;
-	border-radius: 5px;
+	border-radius: 7px;
 	color: $BG;
 }
 .sidestuff {
-	margin-right: 10px;
+	margin-right: 7px;
 }
 .sidestuff slider {
 	all: unset;
@@ -67,7 +67,7 @@
 	padding-right: 10px;
 	background-color: $BLUE;
 	color: $BG;
-	border-radius: 5px;
+	border-radius: 7px;
 }
 
 .time {
@@ -77,7 +77,7 @@
 	margin-bottom: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
-	border-radius: 5px;
+	border-radius: 7px;
 }
 .layoutSwitcher {
 	min-width: 10px;

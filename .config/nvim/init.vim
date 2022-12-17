@@ -39,5 +39,7 @@ call plug#end()
 
 " CHANGE THEME
 " ===========================
-colorscheme catppuccin
+colorscheme catppuccin-mocha
 let g:airline_theme='dracula'
+
+autocmd VimEnter * NERDTree

@@ -9,6 +9,7 @@
 (deflisten wsVII "scripts/workspace 7")
 (deflisten wsVIII "scripts/workspace 8")
 (deflisten wsIX "scripts/workspace 9")
+(defvar tray false)
 
 
 (defwidget bar []
@@ -17,6 +18,7 @@
       (icon)
       (workspaces)
       (button :class "quickLaunch" :onclick "code" "")
+      (button :class "quickLaunch" :tooltip "Toggle tray" :onclick "./scripts/stalonetray.py ${tray}" "")
     )
     (box :orientation "h" :space-evenly false :halign "end"
       (sidestuff))))
@@ -56,11 +58,12 @@
 (defwindow bar
   :monitor 0
   :stacking "bg"
+  :wm-ignore false 
   :windowtype "dock"
   :geometry (geometry :x "0%"
     :y "1%"
     :width "1340px"
-    :height "30px"
+    :height "35px"
   :anchor "top center")
-  :reserve (struts :side "top" :distance "4%")
+  :reserve (struts :side "top" :distance "5%")
   (bar))

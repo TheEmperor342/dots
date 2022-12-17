@@ -139,7 +139,8 @@ focus-exclude = [
 opacity-rule = [
   "80:class_g     = 'Bar'",             # lemonbar
   "70:class_g     = 'TelegramDesktop'",
-  "90:class_g     = 'Joplin'"
+  "90:class_g     = 'Joplin'",
+	"90:class_g			= 'firefox'"
 ];
 
 

@@ -15,6 +15,6 @@ configuration{
 		
 }
 
-@theme "./catppuccin-mocha"
+@theme "./oneline"
 
 

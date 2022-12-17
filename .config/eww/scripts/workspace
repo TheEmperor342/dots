@@ -1,18 +1,18 @@
 #! /bin/sh
 
-aa=" "
+aa=""
   if [ $(bspc query -D -d focused --names | grep "$1") ]; then
-    aa=" "
+    aa=""
   elif [ $(bspc query -D -d .occupied --names | grep "$1") ]; then
-    aa=" "
+    aa=""
   fi
 echo $aa
 bspc subscribe desktop node_transfer | while read -r _ ; do
-  aa=" "
+  aa=""
   if [ $(bspc query -D -d focused --names | grep "$1") ]; then
-    aa=" "
+    aa=""
   elif [ $(bspc query -D -d .occupied --names | grep "$1") ]; then
-    aa=" "
+    aa=""
   fi
   echo $aa
 done

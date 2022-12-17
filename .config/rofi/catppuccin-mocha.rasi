@@ -1,5 +1,6 @@
 * {
     bg-col:  #11111b;
+    bg-colT:  #11111b6A;
     bg-col-light: #11111b;
     border-col: #1e1e2e;
     selected-col: #1e1e2e;
@@ -22,18 +23,19 @@ window {
     border: 1px;
     border-color: #313244;
 		border-radius: 5px;
-    background-color: @bg-col;
+    background-color: @bg-colT;
+		transparency: "real";
 }
 
 mainbox {
-    background-color: @bg-col;
+    background-color: @bg-colT;
 }
 
 inputbar {
     children: [prompt,entry];
-    background-color: @bg-col;
+    background-color: @bg-colT;
     border-radius: 5px;
-    padding: 2px;
+    padding: 2px 2px 20px 2px;
 }
 
 prompt {
@@ -59,17 +61,18 @@ entry {
 
 listview {
     border: 0px 0px 0px;
-    padding: 6px 0px 0px;
+    padding: 5px 5px 5px;
     margin: 10px 23px 0px 20px;
     columns: 2;
-    lines: 3;
-    background-color: @bg-col;
+    lines: 6;
+    background-color: #00000000;
 }
 
 element {
     padding: 5px;
-    background-color: @bg-col;
-    text-color: @fg-col  ;
+    background-color: #00000000;
+		border-radius: 5px;
+    text-color: @fg-col;
 }
 
 element-icon {
@@ -77,25 +80,26 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color:  @bg-col;
+    text-color: @fg-col2;
 		border-radius: 5px; 
 }
 
 mode-switcher {
     spacing: 0;
+		background-color: @bg-colT;
   }
 
 button {
     padding: 10px;
-    background-color: @bg-col-light;
+    background-color: @bg-colT;
     text-color: @grey;
     vertical-align: 0.5; 
     horizontal-align: 0.5;
 }
 
 button selected {
-  background-color: @bg-col;
+  background-color: @bg-colT;
   text-color: @blue;
 }
 

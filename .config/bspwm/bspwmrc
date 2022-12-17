@@ -15,7 +15,7 @@ bspc config borderless_monocle      true
 bspc config gapless_monocle         true
 bspc config focus_follows_pointer   true
 bspc config border_radius           5
-bspc config top_padding             35
+#bspc config top_padding             35
 
 #bspc rule -a "*" state=floating 
 bspc rule -a mpv state=floating
@@ -26,19 +26,15 @@ bspc rule -a zathura state=tiling
 
 
 # === AUTOSTARTS === #
+lxsession &
 nitrogen --restore &
 picom --config $HOME/.config/picom/picom.conf &
 #$HOME/.config/polybar/launch.sh & 
 nm-applet &
 blueman-applet &
 flameshot &
-killall eww &
-killall stalonetray &
 nm-applet &
 
-eww daemon
-eww open bar
-sleep 5
-stalonetray -bg "#1e1e2e" --geometry 2x1+656+12 --max-geometry 2x1 --scrollbars horizontal &
+pgrep -x eww > /dev/null || (eww daemon && eww open bar)
 
 libinput-gestures-setup start &

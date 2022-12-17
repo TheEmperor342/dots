@@ -2,9 +2,9 @@
     font-size: 1.3rem;
 }
 .menu {
-    background-color: $CRUST;
-    border: 1px solid $SURFACE0;
-    border-radius: 5px;
+    background-color: rgba(17, 17, 27, 0.2);
+    border: 1px solid $SURFACE0_T;
+    border-radius: 15px;
     font-family: "CaskaydiaCove Nerd Font";
 }
 .iconMenu {
@@ -13,25 +13,25 @@
     padding: 0px;
 }
 .container {
-    border: 1px solid $SURFACE0;
+    border: 1px solid $SURFACE0_T;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: $BG;
-    border-radius: 5px;
+    background-color: rgba(17, 17, 27, 0.5);
+    border-radius: 10px;
     margin: 20px;
     padding-left: 20px;
     padding-right: 20px;
 }
 .container-buttons {
-    border: 1px solid $SURFACE0;
+    border: 1px solid $SURFACE0_T;
     min-height: 110px;
-    background-color: $BG;
-    border-radius: 5px;
+    background-color: rgba(17, 17, 27, 0.5);
+    border-radius: 10px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .metric scale trough {
@@ -56,14 +56,12 @@
     margin-left: 10px;
     margin-right: 10px;
 }
-
-
 .button-shutdown, .button-reboot {
     background-color: $MAROON;
     color: $CRUST;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: 500ms;
     padding-top: 7px;
     padding-bottom: 7px;
@@ -81,7 +79,7 @@
     color: $CRUST;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-left: 5px;
     transition: 500ms;
     padding-top: 7px;
@@ -89,7 +87,7 @@
 }
 .button-exit:hover {
     background-color: $BLUE;
-    box-shadow: 0px 0px 2px $BLUE;
+    box-shadow: 0px 0px 5px $BLUE;
 }
 
 .button-airplane {
@@ -97,7 +95,7 @@
     color: $CRUST;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: 500ms;
     padding-top: 7px;
     padding-bottom: 7px;
@@ -107,19 +105,19 @@
 }
 
 .player-container{
-    border: 1px solid $SURFACE0;
-    background-color: $BG;
+    border: 1px solid $SURFACE0_T;
+    background-color: rgba(17, 17, 27, 0.5);
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 .cover {
     min-width: 80px;
     min-height: 80px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-left: 15px;
     margin-right: 5px;
 }
@@ -139,14 +137,6 @@
 }
 .play-pause:hover {
     text-shadow: 0px 0px 2px $BLUE;
-}
-.player-window {
-    padding: 10px;
-    padding-top: 27px;
-    background-color: $CRUST;
-    border-radius: 5px;
-    border: 1px solid $TEXT;
-    min-width: 410px;
 }
 .panel {
     min-width: 220px;

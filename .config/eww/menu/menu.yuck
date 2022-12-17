@@ -4,6 +4,7 @@
 (defpoll title :interval "1s" "scripts/player.py --title")
 (defpoll artist :interval "1s" "scripts/player.py --artist")
 (defpoll status :interval "1s" "scripts/player.py --status")
+(defpoll notifs :interval "10s" "scripts/notifs.py")
 
 (defwidget yes []
   (box
@@ -43,7 +44,7 @@
         :class "panel"
         :orientation "v"
         :space-evenly false
-        (label :limit-width 17 :text "${title == '' ? 'Not playing' : title}" :class "title")
+        (label :limit-width 17 :text "${title == 'No players found' ? 'Not playing' : title}" :class "title")
         (label :text artist :limit-width 17 :class "artist")
         (box :orientation 'h' :style "margin-top: 5px"
           (button :class "play-pause" :onclick "playerctl previous --player=spotify" "玲")
@@ -59,8 +60,9 @@
         (button :class "button-reboot" :onclick "reboot" "ﰇ")
         (button :class "button-exit" :onclick "bspc quit" " "))
       (box
-        (button :class "button-airplane" :onclick "rfkill toggle all && ${EWW_CMD}" "")
+        (button :class "button-airplane" :onclick "rfkill toggle all &" "")
       ))
+    ; (literal :content notifs)
   )
 )
 
@@ -77,10 +79,10 @@
 
 (defwindow menu
   :monitor 0
-  :stacking "bg"
+	:wm-ignore true
+  :stacking "fg"
   :windowtype "dock"
-  :geometry (geometry :x "-8%"
+  :geometry (geometry :x "-1%"
     :y "6%"
   :anchor "top right")
-  :reserve (struts :side "top" :distance "4%")
   (yes))
