@@ -1,0 +1,19 @@
+(defpoll time_ :interval "10s"
+"date '+%I:%M %p'")
+
+(defwidget contents_ []
+  (box :class "time_" time_)
+)
+
+
+(defwindow time_
+  :monitor 0
+  :stacking "bg"
+  :windowtype "dock"
+  :geometry (geometry
+    :x "1%"
+    :y "1%"
+    :height "30px"
+  :anchor "top left")
+  (contents_)
+)

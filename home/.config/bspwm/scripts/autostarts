@@ -1,0 +1,20 @@
+#! /bin/sh
+
+# === AUTOSTARTS === #
+(killall lxsession && lxsession) || lxsession &
+
+(killall picom && picom --config $HOME/.config/picom/picom.conf) || picom --config $HOME/.config/picom/picom.conf &
+
+nm-applet &
+blueman-applet &
+flameshot &
+nitrogen --restore &
+(killall unclutter && unclutter) || unclutter &
+
+(killall eww && eww daemon) || eww daemon &
+$HOME/.config/polybar/launch &
+
+killall bspc &
+
+libinput-gestures-setup stop &&
+libinput-gestures-setup start &

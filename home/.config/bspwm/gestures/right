@@ -1,0 +1,3 @@
+#! /usr/bin/env python3
+import subprocess
+subprocess.call(f"bspc desktop -f {int(subprocess.getoutput('bspc query -D -d .focused --names')) +1}", shell=True)

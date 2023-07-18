@@ -1,0 +1,147 @@
+.circ-progress-innertext{
+    font-size: 1.3rem;
+}
+.menu {
+    background-color: $CRUST_T;
+    color: $TEXT;
+    border: 1px solid $SURFACE0_T;
+    border-radius: 12px;
+    font-family: "JetBrainsMono Nerd Font";
+}
+.iconMenu {
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    border: 1px solid $SURFACE0_T;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: $CRUST_T;
+    border-radius: 10px;
+    margin: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.container-buttons {
+    border: 1px solid $SURFACE0_T;
+    background-color: $CRUST_T;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.metric scale trough {
+    all: unset;
+    border-radius: 50px;
+    min-height: 3px;
+    min-width: 50px;
+    margin-left: 10px;
+}
+.metric scale trough highlight {
+    all: unset;
+    margin: .1px;
+    background-color: $MANTLE;
+    border-radius: 10px;
+}
+.metric scale trough {
+    all: unset;
+    background-color: $SURFACE0;
+    border-radius: 50px;
+    min-height: 10px;
+    min-width: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.button-shutdown, .button-reboot {
+    background-color: $MAROON;
+    color: $CRUST;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: 500ms;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.button-reboot {
+    margin-left: 5px;
+}
+.button-shutdown:hover, .button-reboot:hover {
+    background-color: $RED;
+    box-shadow: 0px 0px 5px $RED;
+}
+
+.button-exit {
+    background-color: $SAPPHIRE;
+    color: $CRUST;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    margin-left: 5px;
+    transition: 500ms;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.button-exit:hover {
+    background-color: $BLUE;
+    box-shadow: 0px 0px 5px $BLUE;
+}
+
+.button-airplane {
+    background-color: $TEXT;
+    color: $CRUST;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: 500ms;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.button-airplane:hover {
+    background-color: $SUBTEXT1;
+}
+
+.player-container{
+    border: 1px solid $SURFACE0_T;
+    background-color: $CRUST_T;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.player-container .cover {
+    background: none;
+    min-width: 85px;
+    min-height: 80px;
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.artist {
+    color: $SUBTEXT1;
+    font-size: 14px;
+}
+.title {
+    font-size: 15px;
+    font-weight: 900;
+}
+.player {
+    font-size: 30px;
+}
+.play-pause {
+    font-size: 30px;
+    transition: 250ms;
+}
+.play-pause:hover {
+    text-shadow: 0px 0px 2px $BLUE;
+}
+.panel {
+    min-width: 190px;
+}

@@ -1,0 +1,83 @@
+.bar {
+	border-radius: 12px;
+	background-color: $CRUST;
+	color: $TEXT;
+	font-family: "JetBrainsMonoMedium Nerd Font";
+	padding: 10px;
+	border: 1px solid $SURFACE0;
+}
+.c1 {
+	background-color: $GREEN;
+	color: $BG;
+	border-radius: 7px;
+	padding-left: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+.quickLaunch {
+	background-color: $TEXT;
+	margin-left: 5px;
+	color: $BG;
+	font-size: 1.2rem;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 7px;
+	padding-left: 10px;
+	padding-right: 15px;
+}
+.playerBtn {
+	background-color: $TEXT;
+	margin-right: 5px;
+	color: $BG;
+	font-size: 1.2rem;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 7px;
+	padding-left: 10px;
+	padding-right: 15px;
+}
+.icon {
+	margin-left: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-family: 'sucklessfont_v2.1';
+	background-color: $TEXT;
+	border-radius: 7px;
+	color: $BG;
+}
+.sidestuff {
+	margin-right: 10px;
+}
+.sidestuff slider {
+	all: unset;
+	color: $MAROON;
+}
+
+.label-ram {
+	font-size: large;
+}
+.workspaces {
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: $BLUE;
+	color: $BG;
+	border-radius: 7px;
+}
+.time {
+	background-color: $MAROON;
+	color: $BG;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 7px;
+}
+.layoutSwitcher {
+	min-width: 10px;
+}

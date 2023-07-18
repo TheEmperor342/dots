@@ -1,0 +1,97 @@
+/*******************************************************************************
+ * MACOS LAUNCHPAD LIKE THEME FOR ROFI 
+ * User                 : LR-Tech               
+ * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
+ *******************************************************************************/
+
+* {
+    font: "CaskaydiaCove Nerd Font 10";
+
+    bg0:  #18182580;
+    bg1:  #1e1e2e;
+    bg2:  #31324420;
+    bg3:  #45475a40;
+    bg4:  #585b70E6;
+
+    fg0:  #cdd6f4;
+    fg1:  #cdd6f480;
+		fg2:  #7f849c;
+
+    background-color: transparent;
+    text-color:       @fg0;
+    padding:          0px;
+    margin:           0px;
+}
+
+window {
+  fullscreen: true;
+  padding: 1em;
+  background-color: @bg0;
+}
+
+mainbox {
+  padding:  8px;
+}
+
+inputbar {
+  background-color: @bg2;
+
+  margin:   0px calc( 50% - 120px );
+  padding:  2px 4px;
+  spacing:  4px;
+	text-color: @fg0;
+
+  border:         1px;
+  border-radius:  2px;
+  border-color:   @bg3;
+
+  children: [icon-search,entry];
+}
+
+prompt {
+  enabled:  false;
+}
+
+icon-search {
+  expand:   false;
+  filename: "search";
+  vertical-align: 0.5;
+}
+
+entry {
+  placeholder:        "Search";
+  placeholder-color:  @fg2;
+	text-color: @fg0;
+}
+
+listview {
+  margin:   48px calc( 50% - 560px );
+  spacing:  48px;
+  columns:  6;
+  fixed-columns: true;
+}
+
+element, element-text, element-icon {
+  cursor: pointer;
+}
+
+element {
+  padding:      8px;
+  spacing:      4px;
+
+  orientation:    vertical;
+  border-radius:  16px;
+}
+
+element selected {
+  background-color: @bg4;
+}
+
+element-icon {
+  size: 4em;
+  horizontal-align: 0.5;
+}
+
+element-text {
+  horizontal-align: 0.5;
+}

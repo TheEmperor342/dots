@@ -1,0 +1,65 @@
+(defpoll bat :interval "15s" "./scripts/bat.py")
+(defpoll ram :interval "15s" "./scripts/getram")
+(deflisten wsI "scripts/workspace 1")
+(deflisten wsII "scripts/workspace 2")
+(deflisten wsIII "scripts/workspace 3")
+(deflisten wsIV "scripts/workspace 4")
+(deflisten wsV "scripts/workspace 5")
+(deflisten wsVI "scripts/workspace 6")
+(deflisten wsVII "scripts/workspace 7")
+(deflisten wsVIII "scripts/workspace 8")
+(deflisten wsIX "scripts/workspace 9")
+
+(defwidget bar []
+  (box :orientation "h"
+    (box :orientation "h" :space-evenly false :halign "start"
+      (icon)
+      (workspaces)
+      ; (button :class "quickLaunch" :tooltip "Toggle tray" :onclick "./scripts/stalonetray.py ${tray}" "")
+    )
+    (box :orientation "h" :space-evenly false :halign "end"
+      (sidestuff))))
+
+(defwidget icon []
+  (box :class "icon" :orientation "h" :space-evenly false :halign "start" :tooltip "Launcher"
+    (button :onclick "rofi -show drun &" "bspwm")))
+
+(defwidget sidestuff []
+  (box
+    (eventbox :onclick "eww open --toggle menu"
+      (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+        
+        (box :class "c1" :orientation "h" :space-evenly false :halign "end"
+          (box "塞 ${ram}%  ")
+          (box "${bat}  ")
+        )
+        (box :class "time" time)))))
+
+(defwidget workspaces []
+  (box :class "workspaces" :orientation "h" :space-evenly true :spacing 10 :halign "start"
+    (button :onclick "bspc desktop -f 1" "${wsI}")
+    (button :onclick "bspc desktop -f 2" "${wsII}")
+    (button :onclick "bspc desktop -f 3" "${wsIII}")
+    (button :onclick "bspc desktop -f 4" "${wsIV}")
+    (button :onclick "bspc desktop -f 5" "${wsV}")
+    (button :onclick "bspc desktop -f 6" "${wsVI}")
+    (button :onclick "bspc desktop -f 7" "${wsVII}")
+    (button :onclick "bspc desktop -f 8" "${wsVIII}")
+    (button :onclick "bspc desktop -f 9" "${wsIX}")
+  )
+)
+
+(defpoll time :interval "10s"
+"date '+%I:%M %p %b %d, %Y'")
+
+(defwindow bar
+  :windowtype "dock"
+  :stacking "bg"
+  :wm-ignore false
+  :geometry (geometry :x "0%"
+    :y "1%"
+    :width "1340px"
+    :height "35px"
+  :anchor "top center")
+  :reserve (struts :side "top" :distance "5%")
+  (bar))

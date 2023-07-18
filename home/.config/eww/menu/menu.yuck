@@ -1,0 +1,89 @@
+(defpoll brightness :interval "1s" "brightnessctl g")
+(defpoll cpu :interval "1s" "scripts/getcpu")
+(defpoll volume :interval "1s" "scripts/getvol")
+(defpoll title :interval "1s" "scripts/player.py --title")
+(defpoll artist :interval "1s" "scripts/player.py --artist")
+(defpoll art :interval "1s" "scripts/player.py --art")
+(defpoll status :interval "1s" "scripts/player.py --status")
+(defpoll color :interval "1s" "scripts/player.py --color")
+(defpoll notifs :interval "10s" "scripts/notifs.py")
+
+(defwidget yes []
+  (box
+    :orientation "v"
+    :space-evenly false
+    (box
+      :orientation "v"
+      :space-evenly false
+      (box
+        :class "container"
+        :orientation "v"
+        :space-evenly false
+        (box
+          :orientation "h"
+          :space-evenly false
+          (metric
+            :label "󰕾 "
+            :value volume
+            :onchange "amixer -D pipewire sset Master {}%"
+          )
+          (box "${volume}%")
+        )
+        
+        (box
+          :orientation "h"
+          :space-evenly false
+          (metric
+            :label "󰃠 "
+            :value "${(brightness / 187) * 100}"
+          :onchange "brightnessctl s {}%")
+          (box "${round((brightness / 187) * 100, 0)}%")
+        )
+      ))
+    (box :class "player-container" :orientation 'h' :space-evenly false
+      (box :class "cover" :style "transition: 500ms; background-image: url('${art}'); background-size: cover; background-position: center; ${color == 'Nothing playing' ? '' : 'box-shadow: 0px 0px 25px ${color}'}")
+      (box
+        :class "panel"
+        :orientation "v"
+        :space-evenly false
+        (label :limit-width 16 :text "${title == 'No players found' ? 'Not playing' : title}" :class "title")
+        (label :text artist :limit-width 16 :class "artist")
+        (box :orientation 'h' :style "margin-top: 5px"
+          (button :class "play-pause" :onclick "playerctl previous --player=spotify" "󰒮")
+          (button :class "play-pause" :onclick "playerctl play-pause --player=spotify" "${status == 'Playing' ? '':''}")
+          (button :class "play-pause" :onclick "playerctl next --player=spotify" "󰒭")
+        )
+      )
+    )
+    
+    (box :class "container-buttons" :orientation "v" :space-evenly false
+      (box
+        (button :class "button-shutdown" :onclick "shutdown now" "")
+        (button :class "button-reboot" :onclick "reboot" " ")
+        (button :class "button-exit" :onclick "bspc quit" " "))
+      (box
+        (button :class "button-airplane" :onclick "rfkill toggle all &" "")
+      ))
+  )
+)
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+    :class "metric"
+    :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+      :max 101
+      :active {onchange != ""}
+      :value value
+    :onchange onchange)))
+
+(defwindow menu
+  :monitor 0
+  :wm-ignore true
+  :stacking "fg"
+  :windowtype "dock"
+  :geometry (geometry :x "-1%"
+    :y "6%"
+  :anchor "top right")
+  (yes))

@@ -1,0 +1,27 @@
+$SURFACE0: #313244;
+$BG: #1e1e2e;
+$OVERLAY0: #6c7086;
+$MANTLE: #181825;
+$CRUST: #11111b;
+$GREEN: #a6e3a1;
+$BLUE: #89b4fa;
+$SAPPHIRE: #74c7ec;
+$TEAL: #94e2d5;
+$TEXT: #cdd6f4;
+$SUBTEXT1: #bac2de;
+$MAROON: #eba0ac;
+$RED: #f38ba8;
+$PEACH: #fab387;
+$SURFACE0_T: rgba(49, 50, 68, 0.5);
+$CRUST_T: rgba(17, 17, 27, 0.5);
+$BG_TR: rgba(30, 30, 46, 0.7);
+
+@import "./bar/bar.scss";
+@import "./menu/menu.scss";
+@import "./time/time.scss";
+
+* {
+    padding: 0px;
+    margin: 0px;
+    all: unset;
+}
