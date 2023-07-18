@@ -1,0 +1,150 @@
+#! /bin/sh
+
+echo "This installer assumes a stable internet connection, and a UEFI system."
+timedatectl set-ntp true
+read -p "==> Do you have an intel or an amd cpu? (i/a): " cpu
+case $doit in  
+  i|I) cpu="intel";; 
+  a|A) cpu="amd";; 
+  *) exit;; 
+esac
+
+lsblk
+echo "Choose a drive to install to. Only state the name (e.g. sda, sdb)"
+read -p "==> " sda
+echo "Make a GPT label with the following partitions: "
+echo "/dev/$sda\1......512M.......EFI SYSTEM PARTITION"
+echo "/dev/$sda\2......X GB.......LINUX SWAP"
+echo "/dev/$sda\3......X GB.......LINUX FILESYSTEM"
+echo "Press enter to continue"
+read
+cfdisk /dev/$sda
+echo "==> Updating parallel downloads in pacman"
+sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 5/" /etc/pacman.conf
+pacman -S rsync --noconfirm
+echo "==> Updating pacman mirrors"
+reflector --verbose --country 'India' -l 5 --sort rate --save /etc/pacman.d/mirrorlist
+echo "==> Updating keyring"
+pacman --noconfirm -Sy archlinux-keyring
+
+echo "==> Making FAT32 on /dev/sda1"
+mkfs.fat -F32 /dev/sda1
+echo "==> Making and mounting swap on /dev/sda2"
+mkswap /dev/sda2
+swapon /dev/sda2
+echo "==> Making ext4 on /dev/sda3"
+mkfs.ext4 /dev/sda3
+echo "==> Mounting partitions"
+mount /dev/sda3 /mnt
+mkdir /mnt/boot/
+mount /dev/sda1 /mnt/boot/
+
+echo "==> Pacstrap"
+pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware neovim git networkmanager $cpu\-ucode
+echo "==> Generating fstab"
+genfstab -U /mnt >> /mnt/etc/fstab
+sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
+chmod +x /mnt/arch_install2.sh
+arch-chroot /mnt ./arch_install2.sh $cpu $sda
+
+#part2
+
+read -p "==> Username: " username
+read -p "==> Password: " password
+
+pacman -S --noconfirm sed reflector rsync
+
+echo "==> Updating mirrors"
+reflector --verbose --country 'India' -l 5 --sort rate --save /etc/pacman.d/mirrorlist
+sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 5/" /etc/pacman.conf
+ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+hwclock --systohc
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "KEYMAP=us" > /etc/vconsole.conf
+echo $hostname > /etc/hostname
+echo "127.0.0.1       localhost" >> /etc/hosts
+echo "::1             localhost" >> /etc/hosts
+echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
+
+echo "==> Enabling NetworkManager"
+systemctl enable NetworkManager
+echo "==> Setting root password"
+echo -e "$password\n$password" | passwd
+mkinitcpio -P
+
+echo "==> Install systemd-boot"
+bootctl install
+echo -e "\ndefault arch" >> /boot/loader/loader.conf
+echo -e "timeout 5" >> /boot/loader/loader.conf
+echo -e "editor no" >> /boot/loader/loader.conf
+
+echo "title Arch Linux" >> /boot/loader/entries/arch.conf
+echo "linux /vmlinuz-linux-lts" >> /boot/loader/entries/arch.conf
+echo "initrd /$1\-ucode.img" >> /boot/loader/entries/arch.conf
+echo "initrd /initramfs-linux-lts.img" >> /boot/loader/entries/arch.conf
+echo "options root=/dev/$2\3 rw" >> /boot/loader/entries/arch.conf
+
+echo "title Arch Linux Fallback" >> /boot/loader/entries/arch-fallback.conf
+echo "linux /vmlinuz-linux-lts" >> /boot/loader/entries/arch-fallback.conf
+echo "initrd /$1\-ucode.img" >> /boot/loader/entries/arch-fallback.conf
+echo "initrd /initramfs-linux-lts-fallback.img" >> /boot/loader/entries/arch-fallback.conf
+echo "options root=/dev/$2\3 rw" >> /boot/loader/entries/arch-fallback.conf
+
+echo "title Arch Linux Terminal" >> /boot/loader/entries/arch-fallback.conf
+echo "linux /vmlinuz-linux-lts" >> /boot/loader/entries/arch-fallback.conf
+echo "initrd /$1\-ucode.img" >> /boot/loader/entries/arch-fallback.conf
+echo "initrd /initramfs-linux-lts.img" >> /boot/loader/entries/arch-fallback.conf
+echo "options root=/dev/$2\3 rw systemd.unit=multi-user.target" >> /boot/loader/entries/arch-fallback.conf
+
+systemctl enable systemd-boot-update.service
+
+echo "==> Install yay"
+mkdir archinstall
+cd archinstall
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+
+echo "==> Installing packages for dotfiles"
+yay -S --noconfirm --needed mesa mesa-utils xf86-video-intel pipewire wireplumber alsa-utils pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio \
+	xorg-server xorg-xinit xorg-xrandr xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen dunst picom kitty brightnessctl playerctl \
+	polybar bluez bluez-utils blueman network-manager-applet python python-pip ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
+	lxsession lxappearance xdotool jq tidy rofi libinput-gestures tlp libnotify zsh zsh-autosuggestions zsh-syntax-highlighting pcmanfm-gtk3 \
+	bash-completion unzip unrar xarchiver catppuccin-gtk-theme-mocha vlc
+
+echo "==> Create \"$username\" user"
+useradd -m -g users -G audio,video,network,wheel,storage,rfkill -s /usr/bin/zsh $username
+echo -e "$password\n$password" | passwd $username
+echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+
+echo "==> Deploy dotfiles"
+mkdir -p /home/$username/.config/
+mkdir -p /home/$username/.dotfiles
+cd /home/$username
+cfgDir=/home/$username/.config
+dotDir=/home/$username/.dotfiles/home/.config
+git clone https://github.com/TheEmperor342/dots .dotfiles
+cd .dotfiles
+
+echo "-> Symlinking dotfiles"
+ln -sf $dotDir/bspwm $cfgdir
+ln -sf $dotDir/dunst $cfgdir
+ln -sf $dotDir/eww $cfgdir
+ln -sf $dotDir/kitty $cfgdir
+ln -sf $dotDir/nvim $cfgdir
+ln -sf $dotDir/picom $cfgdir
+ln -sf $dotDir/polybar $cfgdir
+ln -sf $dotDir/rofi $cfgdir
+ln -sf $dotDir/sxhkd $cfgdir
+ln -sf $dotDir/Wallpapers $cfgdir
+ln -sf $dotDir/colors.py $cfgdir
+ln -sf $dotDir/libinput-gestures.conf $cfgdir
+ln -sf /home/$username/.dotfiles/home/.zshrc /home/$username/
+ln -sf /home/$username/.dotfiles/home/.xinitc /home/$username/
+
+echo "### Install complete."
+echo "You may want to install drivers for NVIDIA or AMD GPU."
+exit
