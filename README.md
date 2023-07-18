@@ -10,7 +10,7 @@ My configuration for bspwm
 - Notif daemon: dunst
 - Compositor: picom
 - Terminal: kitty
-- menu: [eww](https://github.com/elkowar/eww), playerctl, brightnessctl
+- menu: [eww](https://github.com/elkowar/eww), playerctl, brightnessctl, alsa-utils
 - bar: polybar
 - Bluetooth: blueman
 - python3, python-pip
@@ -25,7 +25,7 @@ My configuration for bspwm
 ___
 Command to install dependencies in arch linux:
 ```
-yay -S --needed xorg-server xorg-xinit bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst picom kitty eww brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting playerctl blueman python python-pip ttf-jetbrains-mono-nerd lxsession lxappearance xdotool neovim jq tidy rofi
+yay -S --needed xorg-server xorg-xinit bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst picom kitty eww brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting playerctl blueman python python-pip ttf-jetbrains-mono-nerd lxsession lxappearance xdotool neovim jq tidy rofi alsa-utils
 ```
 Installing gestures stuff
 ```
