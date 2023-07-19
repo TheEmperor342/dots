@@ -104,7 +104,7 @@ systemctl enable systemd-boot-update.service
 echo "==> Create \"$username\" user"
 useradd -m -g users -G audio,video,network,wheel,storage,rfkill $username
 echo -e "$password\n$password" | passwd $username
-echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ai3_path=/home/$username/arch_install3.sh
 sed '1,/^#part3$/d' arch_install2.sh > $ai3_path
@@ -116,10 +116,11 @@ exit
 #part3
 # FIXME
 echo "==> Install yay"
+cd $HOME
 mkdir archinstall
 cd archinstall
-git clone https://aur.archlinux.org/yay.git
-cd yay
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
 makepkg -si
 cd ..
 
