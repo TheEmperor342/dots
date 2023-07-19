@@ -47,3 +47,10 @@ pip3 install colorthief
 > **Note**
 >
 > You can disable the accent color shadow and album art in the eww menu from `.config/eww/config.json`
+___
+![image](https://github.com/TheEmperor342/dots/assets/83999665/33e7eb61-4f28-4163-a96b-d5b292b19925)
+![image](https://github.com/TheEmperor342/dots/assets/83999665/e0c0d74d-d44a-48aa-9e08-fb716e41b2f7)
+![image](https://github.com/TheEmperor342/dots/assets/83999665/a9bbc1cb-f9fc-464c-abc6-bd1758b07441)
+![image](https://github.com/TheEmperor342/dots/assets/83999665/6c71d08f-b842-436d-9a29-aef4adccdc34)
+
+
