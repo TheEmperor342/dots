@@ -104,6 +104,8 @@ systemctl enable systemd-boot-update.service
 echo "==> Create \"$username\" user"
 useradd -m -g users -G audio,video,network,wheel,storage,rfkill $username
 echo -e "$password\n$password" | passwd $username
+
+# TODO: Remove no passwd after installation
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ai3_path=/home/$username/arch_install3.sh
@@ -114,7 +116,6 @@ su -c $ai3_path -s /bin/sh $username
 exit 
 
 #part3
-# FIXME
 echo "==> Install yay"
 cd $HOME
 mkdir archinstall
@@ -126,7 +127,7 @@ cd ..
 
 echo "==> Installing packages for dotfiles"
 yay -S --noconfirm --needed mesa mesa-utils xf86-video-intel pipewire wireplumber alsa-utils pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio \
-	xorg-server xorg-xinit xorg-xrandr xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen dunst picom kitty brightnessctl playerctl \
+	xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen dunst picom kitty brightnessctl playerctl \
 	polybar bluez bluez-utils blueman network-manager-applet python python-pip ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
 	lxsession lxappearance xdotool jq tidy rofi libinput-gestures tlp libnotify zsh zsh-autosuggestions zsh-syntax-highlighting pcmanfm-gtk3 \
 	bash-completion unzip unrar xarchiver catppuccin-gtk-theme-mocha vlc
