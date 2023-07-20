@@ -48,7 +48,7 @@ sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
 arch-chroot /mnt ./arch_install2.sh $cpu $sda
 
-read "Reboot now? [y/n]: " do_reboot
+read -p "Reboot now? [y/n]: " do_reboot
 
 case $do_reboot in  
   y|Y) reboot;; 
@@ -101,11 +101,11 @@ echo "initrd /${1}-ucode.img" >> /boot/loader/entries/arch-fallback.conf
 echo "initrd /initramfs-linux-lts-fallback.img" >> /boot/loader/entries/arch-fallback.conf
 echo "options root=/dev/${2}3 rw" >> /boot/loader/entries/arch-fallback.conf
 
-echo "title Arch Linux Terminal" >> /boot/loader/entries/arch-fallback.conf
-echo "linux /vmlinuz-linux-lts" >> /boot/loader/entries/arch-fallback.conf
-echo "initrd /${1}-ucode.img" >> /boot/loader/entries/arch-fallback.conf
-echo "initrd /initramfs-linux-lts.img" >> /boot/loader/entries/arch-fallback.conf
-echo "options root=/dev/${2}3 rw systemd.unit=multi-user.target" >> /boot/loader/entries/arch-fallback.conf
+echo "title Arch Linux Terminal" >> /boot/loader/entries/arch-terminal.conf
+echo "linux /vmlinuz-linux-lts" >> /boot/loader/entries/arch-terminal.conf
+echo "initrd /${1}-ucode.img" >> /boot/loader/entries/arch-terminal.conf
+echo "initrd /initramfs-linux-lts.img" >> /boot/loader/entries/arch-terminal.conf
+echo "options root=/dev/${2}3 rw systemd.unit=multi-user.target" >> /boot/loader/entries/arch-terminal.conf
 
 systemctl enable systemd-boot-update.service
 
@@ -134,7 +134,7 @@ makepkg -si
 cd ..
 
 echo "==> Installing packages for dotfiles"
-yay -S --noconfirm --needed mesa mesa-utils xf86-video-intel pipewire wireplumber alsa-utils pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio \
+yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber alsa-utils pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio \
 	xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen dunst picom kitty brightnessctl playerctl \
 	polybar bluez bluez-utils blueman network-manager-applet python python-pip ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
 	lxsession lxappearance xdotool jq tidy rofi libinput-gestures tlp libnotify zsh zsh-autosuggestions zsh-syntax-highlighting pcmanfm-gtk3 \
@@ -166,7 +166,7 @@ ln -sf ${dotDir}/libinput-gestures.conf ${cfgdir}
 ln -sf $HOME/.dotfiles/home/.zshrc $HOME
 ln -sf $HOME/.dotfiles/home/.xinitrc $HOME
 
-sed -i "%wheel ALL=(ALL) ALL" /etc/sudoers
+sudo sed -i "s/%wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 
 echo "### Install complete."
 echo "You may want to install drivers for NVIDIA or AMD GPU."
