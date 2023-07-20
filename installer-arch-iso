@@ -110,7 +110,7 @@ echo "options root=/dev/${2}3 rw systemd.unit=multi-user.target" >> /boot/loader
 systemctl enable systemd-boot-update.service
 
 echo "==> Create \"$username\" user"
-useradd -m -g users -G audio,video,network,wheel,storage,rfkill $username
+useradd -m -g users -G audio,video,network,wheel,storage,input,rfkill $username
 echo -e "$password\n$password" | passwd $username
 
 # TODO: Remove no passwd after installation
