@@ -1,5 +1,6 @@
 #! /bin/sh
 
+echo "THIS SCRIPT MAY NOT WORK FOR YOU. PROCEED AT YOUR OWN RISK."
 echo "This installer assumes a stable internet connection, and a UEFI system."
 timedatectl set-ntp true
 read -p "==> Do you have an intel or an amd cpu? (i/a): " cpu
@@ -46,12 +47,19 @@ genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
 arch-chroot /mnt ./arch_install2.sh $cpu $sda
-exit
+
+read "Reboot now? [y/n]: " do_reboot
+
+case $do_reboot in  
+  y|Y) reboot;; 
+  *) exit;; 
+esac
 
 #part2
 
 read -p "==> Username: " username
 read -p "==> Password: " password
+read -p "==> Machine Hostname: " hostname
 
 pacman -S --noconfirm --needed sed reflector rsync
 
@@ -157,6 +165,8 @@ ln -sf ${dotDir}/colors.py ${cfgdir}
 ln -sf ${dotDir}/libinput-gestures.conf ${cfgdir}
 ln -sf $HOME/.dotfiles/home/.zshrc $HOME
 ln -sf $HOME/.dotfiles/home/.xinitrc $HOME
+
+sed -i "%wheel ALL=(ALL) ALL" /etc/sudoers
 
 echo "### Install complete."
 echo "You may want to install drivers for NVIDIA or AMD GPU."
