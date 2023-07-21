@@ -51,7 +51,7 @@ arch-chroot /mnt ./arch_install2.sh $cpu $sda
 read -p "Reboot now? [y/n]: " do_reboot
 
 case $do_reboot in  
-  y|Y) reboot;; 
+  y|Y) umount -R /mnt && swapoff /dev/${sda}2 && reboot;; 
   *) exit;; 
 esac
 
@@ -113,14 +113,13 @@ echo "==> Create \"$username\" user"
 useradd -m -g users -G audio,video,network,wheel,storage,input,rfkill $username
 echo -e "$password\n$password" | passwd $username
 
-# TODO: Remove no passwd after installation
 echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ai3_path=/home/$username/arch_install3.sh
 sed '1,/^#part3$/d' arch_install2.sh > $ai3_path
 chown $username $ai3_path
 chmod +x $ai3_path
-su -c $ai3_path -s /bin/sh $username
+su -c $ai3_path -s /bin/sh $password $username
 exit 
 
 #part3
@@ -134,40 +133,46 @@ makepkg -si
 cd ..
 
 echo "==> Installing packages for dotfiles"
-yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber alsa-utils pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio \
-	xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen dunst picom kitty brightnessctl playerctl \
-	polybar bluez bluez-utils blueman network-manager-applet python python-pip ttf-jetbrains-mono-nerd noto-fonts noto-fonts-emoji noto-fonts-cjk \
-	lxsession lxappearance xdotool jq tidy rofi libinput-gestures tlp libnotify zsh zsh-autosuggestions zsh-syntax-highlighting pcmanfm-gtk3 \
-	bash-completion unzip unrar xarchiver catppuccin-gtk-theme-mocha vlc
+yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber \
+	alsa-utils pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio \
+	xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop \
+	bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen dunst picom \
+	kitty brightnessctl playerctl polybar bluez bluez-utils blueman \
+	network-manager-applet python python-pip ttf-jetbrains-mono-nerd \
+	noto-fonts noto-fonts-emoji noto-fonts-cjk lxsession lxappearance \
+	xdotool jq tidy rofi libinput-gestures tlp libnotify zsh \
+	zsh-autosuggestions zsh-syntax-highlighting pcmanfm-gtk3 \
+	bash-completion unzip unrar xarchiver catppuccin-gtk-theme-mocha \
+	vlc ntfs-3g
 
 
 echo "==> Deploy dotfiles"
 mkdir -p $HOME/.config/
-mkdir -p $HOME/.dotfiles
 cd $HOME/
 cfgDir=$HOME/.config
 dotDir=$HOME/.dotfiles/home/.config
 git clone https://github.com/TheEmperor342/dots .dotfiles
-cd .dotfiles
 
 echo "-> Symlinking dotfiles"
-ln -sf ${dotDir}/bspwm ${cfgdir}
-ln -sf ${dotDir}/dunst ${cfgdir}
-ln -sf ${dotDir}/eww ${cfgdir}
-ln -sf ${dotDir}/kitty ${cfgdir}
-ln -sf ${dotDir}/nvim ${cfgdir}
-ln -sf ${dotDir}/picom ${cfgdir}
-ln -sf ${dotDir}/polybar ${cfgdir}
-ln -sf ${dotDir}/rofi ${cfgdir}
-ln -sf ${dotDir}/sxhkd ${cfgdir}
-ln -sf ${dotDir}/Wallpapers ${cfgdir}
-ln -sf ${dotDir}/colors.py ${cfgdir}
-ln -sf ${dotDir}/libinput-gestures.conf ${cfgdir}
+ln -sf ${dotDir}/bspwm ${cfgDir}
+ln -sf ${dotDir}/dunst ${cfgDir}
+ln -sf ${dotDir}/eww ${cfgDir}
+ln -sf ${dotDir}/kitty ${cfgDir}
+ln -sf ${dotDir}/nvim ${cfgDir}
+ln -sf ${dotDir}/picom ${cfgDir}
+ln -sf ${dotDir}/polybar ${cfgDir}
+ln -sf ${dotDir}/rofi ${cfgDir}
+ln -sf ${dotDir}/sxhkd ${cfgDir}
+ln -sf ${dotDir}/Wallpapers ${cfgDir}
+ln -sf ${dotDir}/colors.py ${cfgDir}
+ln -sf ${dotDir}/libinput-gestures.conf ${cfgDir}
 ln -sf $HOME/.dotfiles/home/.zshrc $HOME
 ln -sf $HOME/.dotfiles/home/.xinitrc $HOME
 
-sudo sed -i "s/%wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
+echo "==> Changing default shell to zsh"
+echo -e "$1" | chsh -s /usr/bin/zsh $2
 
+sudo sed -i "s/%wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 echo "### Install complete."
 echo "You may want to install drivers for NVIDIA or AMD GPU."
 exit
