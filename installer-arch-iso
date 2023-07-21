@@ -129,22 +129,24 @@ mkdir archinstall
 cd archinstall
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
-makepkg -si
+makepkg -si --noconfirm
 cd ..
 
 echo "==> Installing packages for dotfiles"
 yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber \
-	alsa-utils pipewire-alsa pipewire-pulse pipewire-jack pipewire-audio \
-	xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xorg-xprop \
-	bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen dunst picom \
-	kitty brightnessctl playerctl polybar bluez bluez-utils blueman \
-	network-manager-applet python python-pip ttf-jetbrains-mono-nerd \
+	alsa-utils pipewire-alsa pipewire-pulse pavucontrol pipewire-jack \
+	pipewire-audio xorg-server xorg-xinit xorg-xrandr xorg-xsetroot \
+	xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen \
+	dunst picom	kitty brightnessctl playerctl polybar bluez bluez-utils \
+	blueman	network-manager-applet python python-pip ttf-jetbrains-mono-nerd \
 	noto-fonts noto-fonts-emoji noto-fonts-cjk lxsession lxappearance \
 	xdotool jq tidy rofi libinput-gestures tlp libnotify zsh \
 	zsh-autosuggestions zsh-syntax-highlighting pcmanfm-gtk3 \
 	bash-completion unzip unrar xarchiver catppuccin-gtk-theme-mocha \
 	vlc ntfs-3g
 
+echo "==> Enable bluetooth"
+sudo systemctl enable bluetooth
 
 echo "==> Deploy dotfiles"
 mkdir -p $HOME/.config/
