@@ -119,7 +119,7 @@ ai3_path=/home/$username/arch_install3.sh
 sed '1,/^#part3$/d' arch_install2.sh > $ai3_path
 chown $username $ai3_path
 chmod +x $ai3_path
-su -c $ai3_path -s /bin/sh $password $username
+su -c "$ai3_path $password" -s /bin/sh $username
 exit 
 
 #part3
@@ -170,7 +170,7 @@ ln -sf $HOME/.dotfiles/home/.zshrc $HOME
 ln -sf $HOME/.dotfiles/home/.xinitrc $HOME
 
 echo "==> Changing default shell to zsh"
-echo -e "$1" | chsh -s /usr/bin/zsh $2
+echo -e "$1" | chsh -s /usr/bin/zsh $USER
 
 sudo sed -i "s/%wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 echo "### Install complete."
