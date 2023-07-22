@@ -168,8 +168,11 @@ ln -sf ${dotDir}/sxhkd ${cfgDir}
 ln -sf ${dotDir}/Wallpapers ${cfgDir}
 ln -sf ${dotDir}/colors.py ${cfgDir}
 ln -sf ${dotDir}/libinput-gestures.conf ${cfgDir}
-ln -sf $HOME/.dotfiles/home/.zshrc $HOME
-ln -sf $HOME/.dotfiles/home/.xinitrc $HOME
+ln -sf ${dotDir}/zsh ${cfgDir}
+ln -sf ${dotDir}/X11 ${cfgDir}
+ln -sf ${dotDir}/gtk-2.0 ${cfgDir}
+ln -sf ${dotDir}/gtk-3.0 ${cfgDir}
+ln -sf $HOME/.dotfiles/home/.zprofile $HOME
 
 echo "==> Changing default shell to zsh"
 echo -e "$1" | chsh -s /usr/bin/zsh $USER

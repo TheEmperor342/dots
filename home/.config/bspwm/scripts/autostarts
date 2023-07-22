@@ -11,7 +11,7 @@ flameshot &
 nitrogen --restore &
 (killall unclutter && unclutter) || unclutter &
 
-(killall eww && eww daemon) || eww daemon &
+# (killall eww && eww daemon) || eww daemon &
 $HOME/.config/polybar/launch &
 
 killall bspc &
