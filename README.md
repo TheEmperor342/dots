@@ -12,8 +12,7 @@ My configuration for bspwm
 - Terminal: kitty
 - bar: polybar
 - Bluetooth: blueman
-- python3, python-pip
-  - Package: [colorthief](https://github.com/fengsp/color-thief-py)
+- python3
 - Font: JetBrainsMono nerd fonts
 - Editor: neovim (with [Lazy.nvim](https://github.com/folke/lazy.nvim))
   - `jq` and `tidy` for [rest.nvim](https://github.com/rest-nvim/rest.nvim)
@@ -37,3 +36,9 @@ TLP
 ```
 yay -S tlpui-git
 ```
+![image](https://github.com/TheEmperor342/dots/assets/83999665/e6e21847-a3e7-4db5-b7c9-0e816865197b)
+![image](https://github.com/TheEmperor342/dots/assets/83999665/d2bdad4e-8dbf-49a2-b3d4-65256d790924)
+![image](https://github.com/TheEmperor342/dots/assets/83999665/9ed7ae80-0122-4bc8-92eb-9b5a5b329a0a)
+![image](https://github.com/TheEmperor342/dots/assets/83999665/ed4eb185-d7f4-49ba-9e63-a290a9968b43)
+
+
