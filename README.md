@@ -3,6 +3,9 @@ My configuration for bspwm
 
 # Packages needed
 - Xorg: xorg-server xorg-xinit
+- [Connman](https://wiki.archlinux.org/title/connman) (Optional)
+    - [wpa_supplicant](https://archlinux.org/packages/core/x86_64/wpa_supplicant/) -- WiFi
+    - [rofi-connman](https://aur.archlinux.org/packages/rofi-connman)
 - WM and Keybinds: [bspwm (rounded corners)](https://github.com/phuhl/bspwm-rounded) & [sxhkd](https://github.com/baskerville/sxhkd)
 - GTK Theme: catppuccin Mocha
 - Browser: Firefox
@@ -10,14 +13,14 @@ My configuration for bspwm
 - Notif daemon: dunst
 - Compositor: picom
 - Terminal: kitty
-- bar: polybar
+- Bar: polybar
 - Bluetooth: blueman
-- python3
+- Python3
 - Font: JetBrainsMono nerd fonts
 - Editor: neovim (with [Lazy.nvim](https://github.com/folke/lazy.nvim))
   - `jq` and `tidy` for [rest.nvim](https://github.com/rest-nvim/rest.nvim)
 - lxsession, lxappearance, xdotool
-- I have laptop so I also use [gestures](https://aur.archlinux.org/packages/gestures) and [tlp](https://wiki.archlinux.org/title/TLP)
+- I have laptop so I also use [gestures](https://aur.archlinux.org/packages/libinput-gestures) and [tlp](https://archlinux.org/packages/extra/any/tlp)
   - Remove their autostarts from bspwmrc if you don't want to use them
 
 ___
@@ -27,14 +30,14 @@ yay -S --needed xorg-server xorg-xinit bspwm-rounded-corners catppuccin-gtk-them
 ```
 Installing gestures stuff
 ```
-yay -S gestures
+yay -S libinput-gestures
 sudo gpasswd -a $USER input
 ```
 Reboot after adding your user to input group
 
 TLP
 ```
-yay -S tlpui-git
+sudo pacman -S tlp
 ```
 ![image](https://github.com/TheEmperor342/dots/assets/83999665/e6e21847-a3e7-4db5-b7c9-0e816865197b)
 ![image](https://github.com/TheEmperor342/dots/assets/83999665/d2bdad4e-8dbf-49a2-b3d4-65256d790924)

@@ -111,6 +111,9 @@ super + ctrl + shift + space
 # move/resize
 #
 
+super + shift + i
+	rofi-connman
+
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
@@ -122,6 +125,3 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-super + alt + shift + ctrl + l
-	i3lock -i ~/.config/Wallpapers/lock_screen.png -c 11111b --clock --verif-font "SFMono Nerd Font Mono" --wrong-font "SFMono Nerd Font Mono" --date-font="SFMono Nerd Font Mono" --time-font="SFMono Nerd Font Mono" --time-str="%H:%M" --time-size=120 --date-str="%a, %d %b" --date-size=35 --ind-pos "w/2:h/2+158" --time-pos="w/2:h/4-5" --time-color "#cdd6f4" --date-color "#bac2de" --inside-color "#89b4fa" --ring-color "#cdd6f4" --insidever-color "#94e2d5" --ringver-color "#f9e2af" --insidewrong-color "#f38ba8" --ringwrong-color "#eba0ac" --verif-text " " --wrong-text " " --noinput-text " "

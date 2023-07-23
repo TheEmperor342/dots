@@ -22,7 +22,7 @@ window {
     height: 400px;
     border: 1px;
     border-color: #313244;
-    border-radius: 15px;
+    border-radius: 12px;
     background-color: @bg-col-light;
     transparency: "real";
 }
