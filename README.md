@@ -2,7 +2,7 @@
 My configuration for bspwm
 
 # Packages needed
-- Xorg: xorg-server xorg-xinit
+- Xorg: xorg-server xorg-xinit, xorg-xsetroot
 - [Connman](https://wiki.archlinux.org/title/connman) (Optional)
     - [wpa_supplicant](https://archlinux.org/packages/core/x86_64/wpa_supplicant/) -- WiFi
     - [rofi-connman](https://aur.archlinux.org/packages/rofi-connman)
@@ -26,7 +26,7 @@ My configuration for bspwm
 ___
 Command to install dependencies in arch linux:
 ```
-yay -S --needed xorg-server xorg-xinit bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python python-pip ttf-jetbrains-mono-nerd lxsession lxappearance xdotool neovim jq tidy rofi alsa-utils
+yay -S --needed xorg-server xorg-xinit xorg-xsetroot bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python python-pip ttf-jetbrains-mono-nerd lxsession lxappearance xdotool neovim jq tidy rofi alsa-utils
 ```
 Installing gestures stuff
 ```
