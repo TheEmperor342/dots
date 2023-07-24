@@ -174,7 +174,7 @@ ln -sf ${dotDir}/gtk-3.0 ${cfgDir}
 ln -sf $HOME/.dotfiles/home/.zprofile $HOME
 
 echo "==> Enabling tap to click and multi tap"
-printf 'Section "InputClass"
+sudo printf 'Section "InputClass"
     Identifier "touchpad"
     Driver "libinput"
     MatchIsTouchpad "on"
@@ -194,6 +194,14 @@ ln -sf $HOME/.dotfiles/home/firefox/user.js $HOME/.mozilla/firefox/$profileDir
 
 echo "==> Changing default shell to zsh"
 echo -e "$1" | chsh -s /usr/bin/zsh $USER
+
+echo "==> Cleanup installer files"
+rm -rf ./archinstall
+rm -rf ./.bash_logout
+rm -rf ./.bash_profile
+rm -rf ./.bashrc
+rm -rf ./arch_install3.sh
+sudo rm /arch_install2.sh
 
 sudo sed -i "s/%wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 echo "### Install complete."
