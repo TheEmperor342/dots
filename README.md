@@ -3,9 +3,6 @@ My configuration for bspwm
 
 # Packages needed
 - Xorg: xorg-server xorg-xinit, xorg-xsetroot
-- [Connman](https://wiki.archlinux.org/title/connman) (Optional)
-    - [wpa_supplicant](https://archlinux.org/packages/core/x86_64/wpa_supplicant/) -- WiFi
-    - [rofi-connman](https://aur.archlinux.org/packages/rofi-connman)
 - WM and Keybinds: [bspwm (rounded corners)](https://github.com/phuhl/bspwm-rounded) & [sxhkd](https://github.com/baskerville/sxhkd)
 - GTK Theme: catppuccin Mocha
 - Browser: Firefox
