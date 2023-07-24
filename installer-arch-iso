@@ -41,7 +41,7 @@ mkdir /mnt/boot/
 mount /dev/${sda}1 /mnt/boot/
 
 echo "==> Pacstrap"
-pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware neovim git connman wpa_supplicant $cpu\-ucode
+pacstrap /mnt base base-devel linux-lts linux-lts-headers linux-firmware neovim git networkmanager $cpu\-ucode
 echo "==> Generating fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
@@ -77,8 +77,8 @@ echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
 
-echo "==> Enabling Connman"
-systemctl enable connman
+echo "==> Enable NetworkManager"
+systemctl enable NetworkManager
 echo "==> Setting root password"
 echo -e "$password\n$password" | passwd
 mkinitcpio -P
@@ -138,7 +138,7 @@ yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber \
 	pipewire-audio xorg-server xorg-xinit xorg-xrandr xorg-xsetroot \
 	xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen \
 	dunst picom kitty brightnessctl polybar bluez bluez-utils \
-	blueman	python ttf-jetbrains-mono-nerd vlc ntfs-3g rofi-connman\
+	blueman	python ttf-jetbrains-mono-nerd vlc ntfs-3g network-manager-applet \
 	noto-fonts noto-fonts-emoji noto-fonts-cjk lxsession lxappearance \
 	xdotool jq tidy rofi libinput-gestures tlp libnotify zsh \
 	zsh-autosuggestions zsh-syntax-highlighting pcmanfm-gtk3 \

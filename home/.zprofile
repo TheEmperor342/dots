@@ -4,6 +4,7 @@ export EDITOR="nvim"
 export TERMINAL="kitty"
 export TERMINAL_PROG="kitty"
 export BROWSER="firefox"
+export VISUAL="nvim"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
