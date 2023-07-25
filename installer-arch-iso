@@ -137,7 +137,7 @@ yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber \
 	alsa-utils pipewire-alsa pipewire-pulse pavucontrol pipewire-jack \
 	pipewire-audio xorg-server xorg-xinit xorg-xrandr xorg-xsetroot \
 	xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen \
-	dunst picom kitty brightnessctl polybar bluez bluez-utils \
+	dunst picom kitty brightnessctl polybar bluez bluez-utils libinput \
 	blueman	python ttf-jetbrains-mono-nerd vlc ntfs-3g network-manager-applet \
 	noto-fonts noto-fonts-emoji noto-fonts-cjk lxsession lxappearance \
 	xdotool jq tidy rofi libinput-gestures tlp libnotify zsh \
@@ -173,8 +173,35 @@ ln -sf ${dotDir}/gtk-2.0 ${cfgDir}
 ln -sf ${dotDir}/gtk-3.0 ${cfgDir}
 ln -sf $HOME/.dotfiles/home/.zprofile $HOME
 
+echo "==> Enabling tap to click and multi tap"
+sudo printf 'Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "AccelProfile" "adaptive"
+    Option "TappingButtonMap" "lrm"
+    Option "NaturalScrolling" "true"
+EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
+
+echo "==> Installing custom firefox css"
+firefox --headless &
+sleep 5 
+killall firefox
+profileDir=$(ls .mozilla/firefox/ | grep default-release)
+ln -sf $HOME/.dotfiles/home/firefox/chrome $HOME/.mozilla/firefox/$profileDir
+ln -sf $HOME/.dotfiles/home/firefox/user.js $HOME/.mozilla/firefox/$profileDir
+
 echo "==> Changing default shell to zsh"
 echo -e "$1" | chsh -s /usr/bin/zsh $USER
+
+echo "==> Cleanup installer files"
+rm -rf ./archinstall
+rm -rf ./.bash_logout
+rm -rf ./.bash_profile
+rm -rf ./.bashrc
+rm -rf ./arch_install3.sh
+sudo rm /arch_install2.sh
 
 sudo sed -i "s/%wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 echo "### Install complete."
