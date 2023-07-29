@@ -40,9 +40,7 @@ sudo pacman -S tlp
 If you don't have an nvidia GPU, I [envy](https://github.com/bayasdev/envycontrol) you (pun intended).
 - remove xrandr commands from `.xinitrc` located at `home/.config/X11/`
 
-![image](https://github.com/TheEmperor342/dots/assets/83999665/e6e21847-a3e7-4db5-b7c9-0e816865197b)
-![image](https://github.com/TheEmperor342/dots/assets/83999665/d2bdad4e-8dbf-49a2-b3d4-65256d790924)
-![image](https://github.com/TheEmperor342/dots/assets/83999665/9ed7ae80-0122-4bc8-92eb-9b5a5b329a0a)
-![image](https://github.com/TheEmperor342/dots/assets/83999665/ed4eb185-d7f4-49ba-9e63-a290a9968b43)
-
-
+![image](https://github.com/TheEmperor342/dots/assets/83999665/d4388466-34be-4ea5-a834-7d835f62fcdb)
+![image](https://github.com/TheEmperor342/dots/assets/83999665/76ee1867-b5ce-4478-b8d9-46b783259150)
+![image](https://github.com/TheEmperor342/dots/assets/83999665/484e7404-28c5-4426-9418-db872cb9cb8a)
+![image](https://github.com/TheEmperor342/dots/assets/83999665/fe5ca0e2-ed0e-4a44-9abe-b7012c922a11)
