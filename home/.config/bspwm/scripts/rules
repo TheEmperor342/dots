@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # CRUST=$($HOME/.config/bspwm/scripts/chtheme.py get crust)
 # SURFACE0=$($HOME/.config/bspwm/scripts/chtheme.py get surface0)

@@ -1,18 +1,18 @@
-#! /bin/sh
+#!/bin/sh
 
 # === AUTOSTARTS === #
 (killall lxsession && lxsession) || lxsession &
 
-(killall picom && picom --config $HOME/.config/picom/picom.conf) || picom --config $HOME/.config/picom/picom.conf &
+(killall xcompmgr && xcompmgr -F -f -I 0.05 -O 0.05 -r 12) || xcompmgr -F -f -I 0.05 -O 0.05 -r 12 &
 
 (killall blueman-applet && blueman-applet) || blueman-applet &
-flameshot &
+(killall flameshot && flameshot) || flameshot &
 nitrogen --restore &
 (killall unclutter && unclutter) || unclutter &
 (killall nm-applet && nm-applet) || nm-applet &
 
 # (killall eww && eww daemon) || eww daemon &
-$HOME/.config/polybar/launch &
+(killall polybar && $HOME/.config/polybar/launch) || $HOME/.config/polybar/launch &
 
 killall bspc &
 

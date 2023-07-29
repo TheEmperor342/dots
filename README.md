@@ -2,13 +2,13 @@
 My configuration for bspwm
 
 # Packages needed
-- Xorg: xorg-server xorg-xinit, xorg-xsetroot
+- Xorg: xorg-server xorg-xinit, xorg-xsetroot, xorg-xrandr
 - WM and Keybinds: [bspwm (rounded corners)](https://github.com/phuhl/bspwm-rounded) & [sxhkd](https://github.com/baskerville/sxhkd)
 - GTK Theme: catppuccin Mocha
 - Browser: Firefox
 - Wallpaper setter: nitrogen
 - Notif daemon: dunst
-- Compositor: picom
+- Compositor: xcompmgr
 - Terminal: kitty
 - Bar: polybar
 - Bluetooth: blueman
@@ -23,7 +23,7 @@ My configuration for bspwm
 ___
 Command to install dependencies in arch linux:
 ```
-yay -S --needed xorg-server xorg-xinit xorg-xsetroot bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python python-pip ttf-jetbrains-mono-nerd lxsession lxappearance xdotool neovim jq tidy rofi alsa-utils
+yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst xcompmgr kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy rofi alsa-utils
 ```
 Installing gestures stuff
 ```
@@ -36,6 +36,10 @@ TLP
 ```
 sudo pacman -S tlp
 ```
+
+If you don't have an nvidia GPU, I [envy](https://github.com/bayasdev/envycontrol) you (pun intended).
+- remove xrandr commands from `.xinitrc` located at `home/.config/X11/`
+
 ![image](https://github.com/TheEmperor342/dots/assets/83999665/e6e21847-a3e7-4db5-b7c9-0e816865197b)
 ![image](https://github.com/TheEmperor342/dots/assets/83999665/d2bdad4e-8dbf-49a2-b3d4-65256d790924)
 ![image](https://github.com/TheEmperor342/dots/assets/83999665/9ed7ae80-0122-4bc8-92eb-9b5a5b329a0a)

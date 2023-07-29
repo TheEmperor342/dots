@@ -120,6 +120,17 @@ sed '1,/^#part3$/d' arch_install2.sh > $ai3_path
 chown $username $ai3_path
 chmod +x $ai3_path
 su -c "$ai3_path $password" -s /bin/sh $username
+
+echo "==> Enabling tap to click and multi tap"
+printf 'Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "Tapping" "on"
+    Option "AccelProfile" "adaptive"
+    Option "TappingButtonMap" "lrm"
+    Option "NaturalScrolling" "true"
+EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
 exit 
 
 #part3
@@ -136,13 +147,13 @@ echo "==> Installing packages for dotfiles"
 yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber \
 	alsa-utils pipewire-alsa pipewire-pulse pavucontrol pipewire-jack \
 	pipewire-audio xorg-server xorg-xinit xorg-xrandr xorg-xsetroot \
-	xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen \
-	dunst picom kitty brightnessctl polybar bluez bluez-utils libinput \
+	xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen shell-color-scripts \
+	dunst xcompmgr kitty brightnessctl polybar bluez bluez-utils libinput \
 	blueman	python ttf-jetbrains-mono-nerd vlc ntfs-3g network-manager-applet \
-	noto-fonts noto-fonts-emoji noto-fonts-cjk lxsession lxappearance \
-	xdotool jq tidy rofi libinput-gestures tlp libnotify zsh \
-	zsh-autosuggestions zsh-syntax-highlighting pcmanfm-gtk3 \
-	unzip unrar xarchiver catppuccin-gtk-theme-mocha
+	noto-fonts noto-fonts-emoji noto-fonts-cjk lxsession-gtk3 lxappearance \
+	xdotool jq tidy rofi libinput-gestures tlp libnotify zsh zsh-autosuggestions \
+	zsh-syntax-highlighting pcmanfm-gtk3 unzip unrar xarchiver font-manager \
+	catppuccin-gtk-theme-mocha flameshot firefox-ublock-origin firefox-decentraleyes
 
 echo "==> Enable bluetooth"
 sudo systemctl enable bluetooth
@@ -172,17 +183,6 @@ ln -sf ${dotDir}/X11 ${cfgDir}
 ln -sf ${dotDir}/gtk-2.0 ${cfgDir}
 ln -sf ${dotDir}/gtk-3.0 ${cfgDir}
 ln -sf $HOME/.dotfiles/home/.zprofile $HOME
-
-echo "==> Enabling tap to click and multi tap"
-sudo printf 'Section "InputClass"
-    Identifier "touchpad"
-    Driver "libinput"
-    MatchIsTouchpad "on"
-    Option "Tapping" "on"
-    Option "AccelProfile" "adaptive"
-    Option "TappingButtonMap" "lrm"
-    Option "NaturalScrolling" "true"
-EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
 
 echo "==> Installing custom firefox css"
 firefox --headless &

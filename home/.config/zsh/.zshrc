@@ -1,4 +1,4 @@
-# Created by newuser for 5.9
+#!/bin/zsh
 typeset -U path PATH
 path=(~/.local/bin $path)
 export PATH
@@ -12,14 +12,15 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 PROMPT='%(!.%B%F{red}.%B%F{green}%n@)%m %F{blue}%(!.%1~.%~) %F{blue}%(!.#.$)%k%b%f '
-$HOME/.config/colors.py
+#$HOME/.config/colors.py
+colorscript -r
 
 # VIM MODE
 bindkey -v
 export KEYTIMEOUT=1
 
 # ALIASES
-alias vim="nvim"
+alias v="nvim"
 alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
@@ -32,3 +33,9 @@ alias \
 	ccat="highlight --out-format=ansi" \
 	ip="ip -color=auto"
 
+alias \
+	p="sudo pacman" \
+	y="yay" \
+	mount="sudo mount" \
+	umount="sudo umount" \
+	systemctl="sudo systemctl" \

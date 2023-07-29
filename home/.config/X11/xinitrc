@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
@@ -7,5 +7,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# envycontrol is pretty simple to setup
+xrandr --setprovideroutputsource modesetting NVIDIA-0 &
+xrandr --auto &
 xsetroot -cursor_name left_ptr &
+
 exec bspwm
