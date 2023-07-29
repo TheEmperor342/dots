@@ -20,12 +20,16 @@ icons = {
 
 for i in range(10, 120, 10):
     if CHARGE == 100:
-        if STATUS == "Discharging": icon = icons[110][0]
-        elif STATUS == "Full": icon = icons[110][1]
+        if STATUS == "Discharging":
+            icon = icons[110][0]
+        elif STATUS == "Full":
+            icon = icons[110][1]
         break
     elif CHARGE <= i:
-        if STATUS == "Discharging": icon = icons[i][0]
-        elif STATUS == "Charging": icon = icons[i][1]
+        if STATUS == "Discharging":
+            icon = icons[i][0]
+        elif STATUS == "Charging":
+            icon = icons[i][1]
         break
 
 print(f'{icon} {CHARGE}%')

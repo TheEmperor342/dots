@@ -148,7 +148,7 @@ yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber \
 	alsa-utils pipewire-alsa pipewire-pulse pavucontrol pipewire-jack \
 	pipewire-audio xorg-server xorg-xinit xorg-xrandr xorg-xsetroot \
 	xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen shell-color-scripts \
-	dunst xcompmgr kitty brightnessctl polybar bluez bluez-utils libinput \
+	dunst picom kitty brightnessctl polybar bluez bluez-utils libinput \
 	blueman	python ttf-jetbrains-mono-nerd vlc ntfs-3g network-manager-applet \
 	noto-fonts noto-fonts-emoji noto-fonts-cjk lxsession-gtk3 lxappearance \
 	xdotool jq tidy rofi libinput-gestures tlp libnotify zsh zsh-autosuggestions \

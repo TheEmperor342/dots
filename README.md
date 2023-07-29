@@ -8,7 +8,7 @@ My configuration for bspwm
 - Browser: Firefox
 - Wallpaper setter: nitrogen
 - Notif daemon: dunst
-- Compositor: xcompmgr
+- Compositor: picom
 - Terminal: kitty
 - Bar: polybar
 - Bluetooth: blueman
@@ -23,7 +23,7 @@ My configuration for bspwm
 ___
 Command to install dependencies in arch linux:
 ```
-yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst xcompmgr kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy rofi alsa-utils
+yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy rofi alsa-utils
 ```
 Installing gestures stuff
 ```

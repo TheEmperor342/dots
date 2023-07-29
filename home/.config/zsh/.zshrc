@@ -39,3 +39,16 @@ alias \
 	mount="sudo mount" \
 	umount="sudo umount" \
 	systemctl="sudo systemctl" \
+
+alias \
+	cfg="nvim ~/.dotfiles" \
+	cfb="nvim ~/.config/bspwm" \
+	cfd="nvim ~/.config/dunst" \
+	cfe="nvim ~/.config/eww" \
+	cfk="nvim ~/.config/kitty" \
+	cfn="nvim ~/.config/nvim" \
+	cfp="nvim ~/.config/polybar" \
+	cfr="nvim ~/.config/rofi" \
+	cfs="nvim ~/.config/sxhkd" \
+	cfx="nvim ~/.config/X11" \
+	cfz="nvim ~/.config/zsh"
