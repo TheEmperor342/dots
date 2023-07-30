@@ -42,6 +42,6 @@ elif sys.argv[1] == "--color":
         print("Nothing playing")
     else:
         colorthief = __import__("colorthief").ColorThief(
-            f"albumart/{directory[0]}")
+            f"albumart/{directory[-1]}")
         colors = colorthief.get_color(quality=1)
         print(f"rgba({colors[0]}, {colors[1]}, {colors[2]}, 0.6)")
