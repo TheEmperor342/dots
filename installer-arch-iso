@@ -146,7 +146,7 @@ cd ..
 echo "==> Installing packages for dotfiles"
 yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber \
 	alsa-utils pipewire-alsa pipewire-pulse pavucontrol pipewire-jack \
-	pipewire-audio xorg-server xorg-xinit xorg-xrandr xorg-xsetroot \
+	pipewire-audio xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xclip \
 	xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen shell-color-scripts \
 	dunst picom kitty brightnessctl polybar bluez bluez-utils libinput \
 	blueman	python ttf-jetbrains-mono-nerd vlc ntfs-3g network-manager-applet \
@@ -184,6 +184,7 @@ ln -sf ${dotDir}/zsh ${cfgDir}
 ln -sf ${dotDir}/X11 ${cfgDir}
 ln -sf ${dotDir}/gtk-2.0 ${cfgDir}
 ln -sf ${dotDir}/gtk-3.0 ${cfgDir}
+ln -sf ${dotDir}/npm ${cfgDir}
 ln -sf $HOME/.dotfiles/home/.zprofile $HOME
 
 echo "==> Installing custom firefox css"

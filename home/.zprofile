@@ -18,6 +18,7 @@ export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export HISTFILE="$XDG_STATE_HOME/history"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx

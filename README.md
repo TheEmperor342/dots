@@ -16,6 +16,7 @@ My configuration for bspwm
 - Font: JetBrainsMono nerd fonts
 - Editor: neovim (with [Lazy.nvim](https://github.com/folke/lazy.nvim))
   - `jq` and `tidy` for [rest.nvim](https://github.com/rest-nvim/rest.nvim)
+  - xclip
 - lxsession, lxappearance, xdotool
 - I have laptop so I also use [gestures](https://aur.archlinux.org/packages/libinput-gestures) and [tlp](https://archlinux.org/packages/extra/any/tlp)
   - Remove their autostarts from bspwmrc if you don't want to use them
@@ -23,7 +24,7 @@ My configuration for bspwm
 ___
 Command to install dependencies in arch linux:
 ```
-yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy rofi alsa-utils
+yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr bspwm-rounded-corners catppuccin-gtk-theme-mocha polybar sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
 ```
 Installing gestures stuff
 ```
