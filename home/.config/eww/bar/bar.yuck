@@ -30,7 +30,7 @@
       (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
         
         (box :class "c1" :orientation "h" :space-evenly false :halign "end"
-          (box "塞 ${ram}%  ")
+          (box "󰍛 ${ram}%  ")
           (box "${bat}  ")
         )
         (box :class "time" time)))))
