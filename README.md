@@ -69,12 +69,14 @@ My configuration for QTile and bspwm
   ```
   yay -S playerctl python-colorthief
   ```
-
-  ## Gallery
+  ## Gallery (With eww)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/c8868352-8616-4813-9bef-01b51be321cb)
+  ## Gallery (With Polybar)
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/d4388466-34be-4ea5-a834-7d835f62fcdb)
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/76ee1867-b5ce-4478-b8d9-46b783259150)
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/484e7404-28c5-4426-9418-db872cb9cb8a)
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/fe5ca0e2-ed0e-4a44-9abe-b7012c922a11)
+  
 </details>
 
 ____
