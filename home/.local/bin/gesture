@@ -1,0 +1,15 @@
+#!/bin/sh
+case $XDG_CURRENT_DESKTOP in
+	"QTile")
+		case $1 in
+			"next") qtile cmd-obj -o screen -f next_group;;
+			"prev") qtile cmd-obj -o screen -f prev_group;;
+		esac
+		;;
+	"bspwm") 
+		case $1 in
+			"next") bspc desktop -f $(($(bspc query -D -d .focused --names) +1));;
+			"prev") bspc desktop -f $(($(bspc query -D -d .focused --names) -1));;
+		esac
+		;;
+esac

@@ -1,0 +1,63 @@
+#define crust							#11111B
+#define mantle    				#181825
+#define base      				#1E1E2E
+#define surface0					#313244
+#define surface1					#45475a
+#define surface2					#585b70
+#define overlay0					#6c7086
+#define overlay1					#7f849c
+#define overlay2					#9399b2
+#define subtext0					#a6adc8
+#define subtext1					#bac2de
+#define text							#cdd6f4
+#define lavender					#b4befe
+#define blue							#89b4fa
+#define sapphire					#74c7ec
+#define sky								#89dceb
+#define teal							#94e2d5
+#define green							#a6e3a1
+#define yellow						#f9e2af
+#define peach							#fab387
+#define red								#f38ba8
+#define maroon						#eba0ac
+#define muave							#cba6f7
+
+#define FONT_REGULAR xft:JetBrainsMono Nerd Font:style=Regular:pixelsize=12
+#define FONT_BOLD xft:JetBrainsMono Nerd Font:style=Bold:pixelsize=12
+#define FONT_ITALIC xft:JetBrainsMono Nerd Font:style=Italic:pixelsize=12
+
+xterm*Background:					crust
+xterm*Foreground:					text
+xterm*faceName:						FONT_REGULAR
+xterm*faceSize:						9
+
+URxvt*background:					crust
+URxvt*foreground:					text
+URxvt.letterSpace:				-1
+URxvt*font:								FONT_REGULAR
+URxvt*boldFont:						FONT_BOLD
+URxvt*italicFont:					FONT_ITALIC
+URxvt*color0:							crust
+URxvt*color8:							mantle
+URxvt*color1:							red
+URxvt*color9:							maroon
+URxvt*color2:							green
+URxvt*color10:						green
+URxvt*color3:							yellow
+URxvt*color11:						peach
+URxvt*color4:							blue
+URxvt*color12:						sapphire
+URxvt*color5:							muave
+URxvt*color13:						muave
+URxvt*color6:							sky
+URxvt*color14:						teal
+URxvt*color7:							text
+URxvt*color15:						subtext0
+URxvt.scrollBar:					false
+URxvt.saveLines:					1000
+URxvt.cursorBlink:				true
+URxvt.pointerBlank:				true
+URxvt.modifier:						alt
+URxvt.perl-ext-common:		...,tabbed,...
+URxvt.internalBorder: 8
+

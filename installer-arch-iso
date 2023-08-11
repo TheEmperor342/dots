@@ -1,6 +1,7 @@
 #! /bin/sh
 
 echo "THIS SCRIPT MAY NOT WORK FOR YOU. PROCEED AT YOUR OWN RISK."
+echo "Heavily inspired by Bugswriter ( https://github.com/Bugswriter/arch-linux-magic )"
 echo "This installer assumes a stable internet connection, and a UEFI system."
 timedatectl set-ntp true
 read -p "==> Do you have an intel or an amd cpu? (i/a): " cpu
@@ -48,12 +49,15 @@ sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
 arch-chroot /mnt ./arch_install2.sh $cpu $sda
 
+# This runs after "#part2" is finished
+######################################
 read -p "Reboot now? [y/n]: " do_reboot
 
 case $do_reboot in  
   y|Y) umount -R /mnt && swapoff /dev/${sda}2 && reboot;; 
   *) exit;; 
 esac
+######################################
 
 #part2
 
@@ -121,6 +125,8 @@ chown $username $ai3_path
 chmod +x $ai3_path
 su -c "$ai3_path $password" -s /bin/sh $username
 
+# This runs after "#part3" is finished
+######################################
 echo "==> Enabling tap to click and multi tap"
 printf 'Section "InputClass"
     Identifier "touchpad"
@@ -132,6 +138,7 @@ printf 'Section "InputClass"
     Option "NaturalScrolling" "true"
 EndSection' > /etc/X11/xorg.conf.d/30-touchpad.conf
 exit 
+######################################
 
 #part3
 echo "==> Install yay"
@@ -147,7 +154,7 @@ echo "==> Installing packages for dotfiles"
 yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber \
 	alsa-utils pipewire-alsa pipewire-pulse pavucontrol pipewire-jack \
 	pipewire-audio xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xclip \
-	xorg-xprop bspwm-rounded-corners sxhkd firefox ffmpeg nitrogen shell-color-scripts \
+	xorg-xprop qtile qtile-extras python-psutil firefox ffmpeg shell-color-scripts \
 	dunst picom kitty brightnessctl polybar bluez bluez-utils libinput \
 	blueman	python ttf-jetbrains-mono-nerd vlc ntfs-3g network-manager-applet \
 	noto-fonts noto-fonts-emoji noto-fonts-cjk lxsession-gtk3 lxappearance \
@@ -171,21 +178,24 @@ echo "-> Symlinking dotfiles"
 ln -sf ${dotDir}/bspwm ${cfgDir}
 ln -sf ${dotDir}/dunst ${cfgDir}
 ln -sf ${dotDir}/eww ${cfgDir}
+ln -sf ${dotDir}/gtk-2.0 ${cfgDir}
+ln -sf ${dotDir}/gtk-3.0 ${cfgDir}
 ln -sf ${dotDir}/kitty ${cfgDir}
+ln -sf ${dotDir}/npm ${cfgDir}
 ln -sf ${dotDir}/nvim ${cfgDir}
 ln -sf ${dotDir}/picom ${cfgDir}
 ln -sf ${dotDir}/polybar ${cfgDir}
+ln -sf ${dotDir}/qtile ${cfgDir}
 ln -sf ${dotDir}/rofi ${cfgDir}
 ln -sf ${dotDir}/sxhkd ${cfgDir}
 ln -sf ${dotDir}/Wallpapers ${cfgDir}
-ln -sf ${dotDir}/colors.py ${cfgDir}
-ln -sf ${dotDir}/libinput-gestures.conf ${cfgDir}
 ln -sf ${dotDir}/zsh ${cfgDir}
 ln -sf ${dotDir}/X11 ${cfgDir}
-ln -sf ${dotDir}/gtk-2.0 ${cfgDir}
-ln -sf ${dotDir}/gtk-3.0 ${cfgDir}
-ln -sf ${dotDir}/npm ${cfgDir}
+ln -sf ${dotDir}/libinput-gestures.conf ${cfgDir}
 ln -sf $HOME/.dotfiles/home/.zprofile $HOME
+
+mkdir -p $HOME/.local
+ln -sf $HOME/.dotfiles/home/.local/bin $HOME/.local/
 
 echo "==> Installing custom firefox css"
 firefox --headless &

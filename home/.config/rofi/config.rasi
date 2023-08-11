@@ -14,5 +14,5 @@ configuration{
     sidebar-mode: true;
 }
 
-@theme "mocha-default"
+@theme "rofi-transparent.rasi"
 

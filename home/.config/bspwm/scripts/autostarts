@@ -3,7 +3,7 @@
 # === AUTOSTARTS === #
 (killall lxsession && lxsession) || lxsession &
 
-(killall xcompmgr && picom --config ~/.config/picom/picom.conf &) || picom --config ~/.config/picom/picom.conf &
+(killall picom && picom --config ~/.config/picom/picom.conf &) || picom --config ~/.config/picom/picom.conf &
 
 (killall blueman-applet && blueman-applet) || blueman-applet &
 (killall flameshot && flameshot) || flameshot &

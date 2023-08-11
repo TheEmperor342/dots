@@ -1,0 +1,9 @@
+#!/bin/sh
+lxsession &
+picom --config ~/.config/picom/picom.conf &
+blueman-applet &
+flameshot &
+#nitrogen --restore &
+unclutter &
+nm-applet &
+libinput-gestures-setup start &
