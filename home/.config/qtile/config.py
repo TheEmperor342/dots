@@ -168,6 +168,11 @@ layouts = [
 ]
 
 
+widget_defaults = dict(
+    font="JetBrainsMono Nerd Font",
+    fontsize=12,
+    padding=3,
+)
 bar = bar.Bar(
     [
         widget.Sep(
