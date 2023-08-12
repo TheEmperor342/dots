@@ -16,6 +16,10 @@ My configuration for QTile and bspwm
   - Notif daemon: dunst
   - Compositor: picom
   - Terminal: kitty
+  - Tray:
+    - NetworkManager Applet
+    - cbatticon
+    - Blueman
   - Bluetooth: blueman
   - Font: JetBrainsMono nerd fonts
   - Editor: neovim (with [Lazy.nvim](https://github.com/folke/lazy.nvim))
@@ -24,7 +28,7 @@ My configuration for QTile and bspwm
   - lxsession, lxappearance, xdotool
   Command to install dependencies in Arch Linux:
   ```
-  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr qtile qtile-extras python-psutil catppuccin-gtk-theme-mocha firefox dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
+  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr qtile qtile-extras python-psutil network-manager-applet cbatticon catppuccin-gtk-theme-mocha firefox dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
   ```
   ## Gallery
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/f6cf4eb8-6501-421e-901e-49bcb59211a8)
@@ -45,7 +49,9 @@ My configuration for QTile and bspwm
   - Compositor: picom
   - Terminal: kitty
   - Bar: polybar OR eww (There are configs for both in `home/.config`)
-  - Bluetooth: blueman
+  - Tray:
+    - NetworkManager Applet
+    - Blueman
   - Python3
   - Font: JetBrainsMono nerd fonts
   - Editor: neovim (with [Lazy.nvim](https://github.com/folke/lazy.nvim))
@@ -55,7 +61,7 @@ My configuration for QTile and bspwm
 
   Command to install dependencies in Arch Linux:
   ```
-  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr bspwm-rounded-corners catppuccin-gtk-theme-mocha sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
+  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr bspwm-rounded-corners network-manager-applet catppuccin-gtk-theme-mocha sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
   ```
   ### Polybar
   ```

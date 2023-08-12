@@ -203,14 +203,6 @@ bar = bar.Bar(
             linewidth=0,
             padding=15
         ),
-        widget.GenPollText(
-            update_interval=10,
-            func=lambda: subprocess.check_output(
-                f"{HOME}/.local/bin/getram").decode("utf-8"),
-            fmt=" 󰍛 {}% ",
-            foreground=catppuccin["text"],
-            **DEFAULT_DECORATIONS
-        ),
         widget.Spacer(),
         widget.Sep(
             linewidth=0,
@@ -219,11 +211,19 @@ bar = bar.Bar(
         widget.GenPollText(
             update_interval=10,
             func=lambda: subprocess.check_output(
-                f"{HOME}/.local/bin/battery").decode("utf-8"),
-            fmt=" {} ",
+                f"{HOME}/.local/bin/getram").decode("utf-8"),
+            fmt=" 󰍛 {}% ",
             foreground=catppuccin["text"],
             **DEFAULT_DECORATIONS
         ),
+        # widget.GenPollText(
+        #     update_interval=10,
+        #     func=lambda: subprocess.check_output(
+        #         f"{HOME}/.local/bin/battery").decode("utf-8"),
+        #     fmt=" {} ",
+        #     foreground=catppuccin["text"],
+        #     **DEFAULT_DECORATIONS
+        # ),
         widget.Sep(
             linewidth=0,
             padding=15
@@ -262,7 +262,7 @@ bar = bar.Bar(
         ),
         widget.Sep(
             linewidth=0,
-            padding=15
+            padding=5
         ),
         widget.Systray(),
         widget.Sep(

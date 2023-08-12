@@ -1,3 +1,4 @@
+**/__pycache__/
 home/.config/eww/albumart/*
 !home/.config/eww/albumart/.gitkeep
 home/.config/zsh/.zcompdump

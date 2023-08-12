@@ -3,7 +3,7 @@ lxsession &
 picom --config ~/.config/picom/picom.conf &
 blueman-applet &
 flameshot &
-#nitrogen --restore &
 unclutter &
 nm-applet &
+cbatticon &
 libinput-gestures-setup start &

@@ -48,6 +48,7 @@ alias \
 	cfk="nvim ~/.config/kitty" \
 	cfn="nvim ~/.config/nvim" \
 	cfp="nvim ~/.config/polybar" \
+	cfq="nvim ~/.config/qtile" \
 	cfr="nvim ~/.config/rofi" \
 	cfs="nvim ~/.config/sxhkd" \
 	cfx="nvim ~/.config/X11" \
