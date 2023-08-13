@@ -31,8 +31,9 @@ My configuration for QTile and bspwm
   yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr qtile qtile-extras python-psutil network-manager-applet cbatticon catppuccin-gtk-theme-mocha firefox dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
   ```
   ## Gallery
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/f6cf4eb8-6501-421e-901e-49bcb59211a8)
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/f1b55a71-e4de-40e4-b6f9-d533f33f09c8)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/f75fb2fb-4cfa-42c3-b64b-a86ea9978f1e)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/8db30e73-2347-49da-ba3a-8c8292cea6e8)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/8e30a29a-a6a1-46bd-a3e5-733419280aa9)
 
 </details>
 
@@ -89,7 +90,7 @@ ___
 Optional: `fzf` for a script in `home/.local/bin/`
 
 ____
-I have laptop so I also use [libinput-gestures](https://aur.archlinux.org/packages/libinput-gestures) and [tlp](https://archlinux.org/packages/extra/any/tlp)
+I have laptop so I also use [libinput-gestures](https://aur.archlinux.org/packages/libinput-gestures) and [auto-cpufreq](https://github.com/AdnanHodzic/auto-cpufreq)
   - Remove their autostarts from bspwmrc or qtile autostarts if you don't want to use them
 
 Installing gestures stuff
@@ -98,11 +99,6 @@ yay -S libinput-gestures
 sudo gpasswd -a $USER input
 ```
 Reboot after adding your user to input group
-
-TLP
-```
-sudo pacman -S tlp
-```
 
 If you don't have an nvidia GPU, I [envy](https://github.com/bayasdev/envycontrol) you (pun intended).
 - remove xrandr commands from `.xinitrc` located at `home/.config/X11/`
