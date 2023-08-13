@@ -1,0 +1,3 @@
+#!/bin/sh
+# this caused me so much grief you don't even know
+fzf | awk -F "/" '{OFS="/"; $(NF--)=""; print}' | sed "s/^/\.\//" | xargs -I _ sh -c "cd _ && nvim"

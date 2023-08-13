@@ -85,6 +85,9 @@ My configuration for QTile and bspwm
   
 </details>
 
+___
+Optional: `fzf` for a script in `home/.local/bin/`
+
 ____
 I have laptop so I also use [libinput-gestures](https://aur.archlinux.org/packages/libinput-gestures) and [tlp](https://archlinux.org/packages/extra/any/tlp)
   - Remove their autostarts from bspwmrc or qtile autostarts if you don't want to use them

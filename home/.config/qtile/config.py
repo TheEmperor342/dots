@@ -26,7 +26,7 @@
 
 from libqtile import bar, layout
 from qtile_extras import widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile import hook, qtile
 from qtile_extras.widget.decorations import RectDecoration
@@ -127,7 +127,10 @@ keys = [
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "d", lazy.spawn("rofi -show drun"),
         desc="rofi"),
-    Key([], "Print", lazy.spawn("flameshot gui"), desc="Reset all window sizes"),
+    Key([mod], "s", lazy.window.toggle_floating(), desc="Toggle floating"),
+    Key([], "Print", lazy.spawn("flameshot gui"), desc="Screenshot"),
+    Key([mod], 'i', lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key([mod], 'f', lazy.spawn("firefox")),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -151,6 +154,11 @@ for i in groups:
         ]
     )
 
+groups.extend([
+    ScratchPad("scratchpad", [
+        DropDown("term", "kitty", opacity=0.9, height=0.8, y=0.1),
+    ]),
+])
 layouts = [
     # layout.Bsp(**DEFAULT_LAYOUTS),
     layout.MonadTall(**DEFAULT_LAYOUTS),
@@ -282,7 +290,7 @@ def _():
 
 screens = [
     Screen(
-        wallpaper="~/.config/Wallpapers/leafs.png",
+        wallpaper="~/.config/Wallpapers/calc.png",
         wallpaper_mode="fill",
         top=bar,
     ),
