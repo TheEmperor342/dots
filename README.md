@@ -87,7 +87,7 @@ My configuration for QTile and bspwm
 </details>
 
 ___
-Optional: `fzf` for a script in `home/.local/bin/`
+Optional: Install `fzf` for a script in `home/.local/bin/`
 
 ____
 I have laptop so I also use [libinput-gestures](https://aur.archlinux.org/packages/libinput-gestures) and [auto-cpufreq](https://github.com/AdnanHodzic/auto-cpufreq)
