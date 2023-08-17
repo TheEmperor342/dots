@@ -32,9 +32,9 @@ My configuration for QTile and bspwm
   yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr qtile qtile-extras python-psutil network-manager-applet cbatticon catppuccin-gtk-theme-mocha catppuccin-cursors-mocha firefox dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
   ```
   ## Gallery
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/f75fb2fb-4cfa-42c3-b64b-a86ea9978f1e)
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/8db30e73-2347-49da-ba3a-8c8292cea6e8)
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/8e30a29a-a6a1-46bd-a3e5-733419280aa9)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/ed69db26-04e4-4297-9883-9f11d6580e44)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/7ec6e118-7d97-4796-a926-f48f9344aa86)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/70fc3629-b209-4c8f-98b8-7caba8566c31)
 
 </details>
 
