@@ -12,6 +12,7 @@ My configuration for QTile and bspwm
   - Wallpaper setter: QTile
   - Bar: QTile bar
   - GTK Theme: catppuccin Mocha
+  - Cursor Theme: catppuccin cursors
   - Browser: Firefox
   - Notif daemon: dunst
   - Compositor: picom
@@ -25,10 +26,10 @@ My configuration for QTile and bspwm
   - Editor: neovim (with [Lazy.nvim](https://github.com/folke/lazy.nvim))
     - `jq` and `tidy` for [rest.nvim](https://github.com/rest-nvim/rest.nvim)
     - xclip
-  - lxsession, lxappearance, xdotool
+  - lxsession, lxappearance, xdotool, unclutter
   Command to install dependencies in Arch Linux:
   ```
-  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr qtile qtile-extras python-psutil network-manager-applet cbatticon catppuccin-gtk-theme-mocha firefox dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
+  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr qtile qtile-extras python-psutil network-manager-applet cbatticon catppuccin-gtk-theme-mocha catppuccin-cursors-mocha firefox dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
   ```
   ## Gallery
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/f75fb2fb-4cfa-42c3-b64b-a86ea9978f1e)
@@ -44,6 +45,7 @@ My configuration for QTile and bspwm
   - Xorg: xorg-server xorg-xinit, xorg-xsetroot, xorg-xrandr
   - WM and Keybinds: [bspwm (rounded corners)](https://github.com/phuhl/bspwm-rounded) & [sxhkd](https://github.com/baskerville/sxhkd)
   - GTK Theme: catppuccin Mocha
+  - Cursor Theme: catppuccin cursors
   - Browser: Firefox
   - Wallpaper setter: nitrogen
   - Notif daemon: dunst
@@ -62,7 +64,7 @@ My configuration for QTile and bspwm
 
   Command to install dependencies in Arch Linux:
   ```
-  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr bspwm-rounded-corners network-manager-applet catppuccin-gtk-theme-mocha sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
+  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr bspwm-rounded-corners network-manager-applet catppuccin-gtk-theme-mocha catppuccin-cursors-mocha sxhkd firefox nitrogen dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
   ```
   ### Polybar
   ```

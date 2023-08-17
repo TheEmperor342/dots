@@ -69,17 +69,21 @@ DEFAULT_LAYOUTS = {
     "border_focus": catppuccin["surface1"],
     "border_normal": catppuccin["surface0"],
 }
-DEFAULT_DECORATIONS = {
-    "decorations": [
-        RectDecoration(
-            colour=catppuccin["base"],
-            radius=5,
-            filled=True,
-            padding_y=4,
-            group=True
-        )
-    ]
-}
+
+
+def DEFAULT_DECORATIONS(color: str = catppuccin["mantle"]) -> dict:
+    return {
+        "decorations": [
+            RectDecoration(
+                colour=color,
+                radius=4,
+                filled=True,
+                padding_y=4,
+                group=True
+            )
+        ]
+    }
+
 
 mod = "mod4"
 terminal = "kitty"
@@ -130,7 +134,7 @@ keys = [
     Key([mod], "s", lazy.window.toggle_floating(), desc="Toggle floating"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Screenshot"),
     Key([mod], 'i', lazy.group['scratchpad'].dropdown_toggle('term')),
-    Key([mod], 'f', lazy.spawn("firefox")),
+    Key([mod, "shift"], 'f', lazy.spawn("firefox")),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -200,12 +204,12 @@ bar = bar.Bar(
             margin_x=4,
             padding_y=2,
             padding_x=3,
-            borderwidth=3,
-            active=catppuccin["blue"],
-            inactive=catppuccin["subtext1"],
+            borderwidth=2,
+            active=catppuccin["crust"],
+            inactive=catppuccin["surface1"],
             highlight_method="block",
-            this_current_screen_border=catppuccin["surface0"],
-            **DEFAULT_DECORATIONS
+            this_current_screen_border=catppuccin["overlay2"],
+            **DEFAULT_DECORATIONS(catppuccin["text"])
         ),
         widget.Sep(
             linewidth=0,
@@ -220,9 +224,9 @@ bar = bar.Bar(
             update_interval=10,
             func=lambda: subprocess.check_output(
                 f"{HOME}/.local/bin/getram").decode("utf-8"),
-            fmt=" 󰍛 {}% ",
-            foreground=catppuccin["text"],
-            **DEFAULT_DECORATIONS
+            fmt=" 󰍛 {}%",
+            foreground=catppuccin["crust"],
+            **DEFAULT_DECORATIONS(catppuccin["sapphire"])
         ),
         # widget.GenPollText(
         #     update_interval=10,
@@ -232,23 +236,15 @@ bar = bar.Bar(
         #     foreground=catppuccin["text"],
         #     **DEFAULT_DECORATIONS
         # ),
-        widget.Sep(
-            linewidth=0,
-            padding=15
-        ),
         widget.Volume(
-            fmt=" 󰕾 {} ",
+            fmt="| 󰕾 {}",
             font='JetBrainsMono Nerd Font',
-            foreground=catppuccin["text"],
-            **DEFAULT_DECORATIONS
-        ),
-        widget.Sep(
-            linewidth=0,
-            padding=15
+            foreground=catppuccin["crust"],
+            **DEFAULT_DECORATIONS(catppuccin["sapphire"])
         ),
         widget.Backlight(
-            fmt=" 󰃠  {} ",
-            foreground=catppuccin["text"],
+            fmt="| 󰃠  {} ",
+            foreground=catppuccin["crust"],
             change_command="brightnessctl s {0}",
             brightness_file="/sys/class/backlight/intel_backlight/brightness",
             max_brightness_file="/sys/class/backlight/intel_backlight/max_brightness",
@@ -257,16 +253,16 @@ bar = bar.Bar(
                 "Button4": lambda: qtile.cmd_spawn("brightnessctl set +5%"),
                 "Button5": lambda: qtile.cmd_spawn("brightnessctl set 5%-"),
             },
-            **DEFAULT_DECORATIONS
+            **DEFAULT_DECORATIONS(catppuccin["sapphire"])
         ),
         widget.Sep(
             linewidth=0,
             padding=15
         ),
         widget.Clock(
-            foreground=catppuccin["text"],
+            foreground=catppuccin["crust"],
             format="   %I:%M %p ",
-            **DEFAULT_DECORATIONS
+            **DEFAULT_DECORATIONS(catppuccin["yellow"])
         ),
         widget.Sep(
             linewidth=0,
