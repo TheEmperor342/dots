@@ -14,6 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
 	{
 		{ "catppuccin/nvim", name = "catppuccin" },
+		{ "overcache/NeoSolarized" },
+		{ "morhetz/gruvbox" },
 		{ 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 		{
 			'nvim-lualine/lualine.nvim',

@@ -35,6 +35,8 @@ import os
 import subprocess
 
 HOME = os.path.expanduser("~")
+WALLPAPER = "~/.config/Wallpapers/gruvbox.png"
+LOGO = "~/.config/qtile/logos/gruvbox-logo.png"
 catppuccin = {
     "crust": "#11111B",
     "mantle": "#181825",
@@ -60,18 +62,69 @@ catppuccin = {
     "maroon": "#eba0ac",
     "muave": "#cba6f7",
 }
+solarized = {
+    "crust": "#001e26",
+    "mantle": "#002b36",
+    "base": "#073642",
+    "surface0": "#586e75",
+    "surface1": "#657b83",
+    "surface2": "#839496",
+    "overlay0": "#93a1a1",
+    "overlay1": "#eee8d5",
+    "overlay2": "#eee8d5",
+    "subtext0": "#eee8d5",
+    "subtext1": "#eee8d5",
+    "text": "#fdf6e3",
+    "lavender": "#2aa198",
+    "blue": "#268bd2",
+    "sapphire": "#268bd2",
+    "sky": "#6c71c4",
+    "teal": "#6c71c4",
+    "green": "#859900",
+    "yellow": "#b58900",
+    "peach": "#cb4b16",
+    "red": "#dc322f",
+    "maroon": "#dc322f",
+    "muave": "#d33682",
+}
+gruvbox = {
+    "crust": "#1d2021",
+    "mantle": "#282828",
+    "base": "#282828",
+    "surface0": "#3c3836",
+    "surface1": "#504945",
+    "surface2": "#665c54",
+    "overlay0": "#a89984",
+    "overlay1": "#bdae93",
+    "overlay2": "#d5c4a1",
+    "subtext0": "#ebdbb2",
+    "subtext1": "#fbf1c7",
+    "text": "#ebdbb2",
+    "lavender": "#8ec07c",
+    "blue": "#458588",
+    "sapphire": "#076678",
+    "sky": "#83a598",
+    "teal": "#83a598",
+    "green": "#98971a",
+    "yellow": "#fabd2f",
+    "peach": "#d79921",
+    "red": "#cc241d",
+    "maroon": "#fb4934",
+    "muave": "#b16286",
+}
 
+colors = gruvbox
 DEFAULT_LAYOUTS = {
     "margin": 7,
     "font": "JetBrainsMono Nerd Font",
     "fontsize": 9,
     "border_width": 1,
-    "border_focus": catppuccin["surface1"],
-    "border_normal": catppuccin["surface0"],
+    "border_focus": colors["surface1"],
+    "border_normal": colors["surface0"],
 }
 
 
-def DEFAULT_DECORATIONS(color: str = catppuccin["mantle"]) -> dict:
+def DEFAULT_DECORATIONS(color: str = colors["mantle"]) -> dict:
     return {
         "decorations": [
             RectDecoration(
@@ -192,7 +245,7 @@ bar = bar.Bar(
             padding=15
         ),
         widget.Image(
-            filename="~/.config/qtile/logo.png"
+            filename=LOGO
         ),
         widget.Sep(
             linewidth=0,
@@ -205,11 +258,11 @@ bar = bar.Bar(
             padding_y=2,
             padding_x=3,
             borderwidth=2,
-            active=catppuccin["crust"],
-            inactive=catppuccin["surface1"],
+            active=colors["crust"],
+            inactive=colors["surface1"],
             highlight_method="block",
-            this_current_screen_border=catppuccin["overlay2"],
-            **DEFAULT_DECORATIONS(catppuccin["text"])
+            this_current_screen_border=colors["overlay2"],
+            **DEFAULT_DECORATIONS(colors["text"])
         ),
         widget.Sep(
             linewidth=0,
@@ -225,26 +278,26 @@ bar = bar.Bar(
             func=lambda: subprocess.check_output(
                 f"{HOME}/.local/bin/getram").decode("utf-8"),
             fmt=" 󰍛 {}%",
-            foreground=catppuccin["crust"],
-            **DEFAULT_DECORATIONS(catppuccin["sapphire"])
+            foreground=colors["crust"],
+            **DEFAULT_DECORATIONS(colors["sapphire"])
         ),
         # widget.GenPollText(
         #     update_interval=10,
         #     func=lambda: subprocess.check_output(
         #         f"{HOME}/.local/bin/battery").decode("utf-8"),
         #     fmt=" {} ",
-        #     foreground=catppuccin["text"],
+        #     foreground=colors["text"],
         #     **DEFAULT_DECORATIONS
         # ),
         widget.Volume(
             fmt="| 󰕾 {}",
             font='JetBrainsMono Nerd Font',
-            foreground=catppuccin["crust"],
-            **DEFAULT_DECORATIONS(catppuccin["sapphire"])
+            foreground=colors["crust"],
+            **DEFAULT_DECORATIONS(colors["sapphire"])
         ),
         widget.Backlight(
             fmt="| 󰃠  {} ",
-            foreground=catppuccin["crust"],
+            foreground=colors["crust"],
             change_command="brightnessctl s {0}",
             brightness_file="/sys/class/backlight/intel_backlight/brightness",
             max_brightness_file="/sys/class/backlight/intel_backlight/max_brightness",
@@ -253,16 +306,16 @@ bar = bar.Bar(
                 "Button4": lambda: qtile.cmd_spawn("brightnessctl set +5%"),
                 "Button5": lambda: qtile.cmd_spawn("brightnessctl set 5%-"),
             },
-            **DEFAULT_DECORATIONS(catppuccin["sapphire"])
+            **DEFAULT_DECORATIONS(colors["sapphire"])
         ),
         widget.Sep(
             linewidth=0,
             padding=15
         ),
         widget.Clock(
-            foreground=catppuccin["crust"],
+            foreground=colors["crust"],
             format="   %I:%M %p ",
-            **DEFAULT_DECORATIONS(catppuccin["yellow"])
+            **DEFAULT_DECORATIONS(colors["yellow"])
         ),
         widget.Sep(
             linewidth=0,
@@ -274,8 +327,8 @@ bar = bar.Bar(
             padding=15
         ),
     ],
-    32,
-    background=catppuccin["crust"]
+    34,
+    background=colors["crust"]
 )
 
 
@@ -286,7 +339,7 @@ def _():
 
 screens = [
     Screen(
-        wallpaper="~/.config/Wallpapers/calc.png",
+        wallpaper=WALLPAPER,
         wallpaper_mode="fill",
         top=bar,
     ),

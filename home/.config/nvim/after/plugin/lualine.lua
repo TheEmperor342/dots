@@ -38,7 +38,7 @@
 --  inactive_winbar = {},
 --  extensions = {}
 --}
-local colors = {
+local colorsCatppuccin = {
 	blue   = '#89b4fa',
 	cyan   = '#94e2d5',
 	black  = '#181825',
@@ -48,40 +48,63 @@ local colors = {
 	grey   = '#313244',
 }
 
+local colorsSolarized = {
+	blue   = '#268bd2',
+	cyan   = '#2aa198',
+	black  = '#002b36',
+	white  = '#fdf6e3',
+	red    = '#dc322f',
+	violet = '#6c71c4',
+	grey   = '#073642',
+}
+
+local colorsGruvbox = {
+	blue   = '#458588',
+	cyan   = '#83a598',
+	black  = '#1d2021',
+	white  = '#ebdbb2',
+	red    = '#cc241d',
+	violet = '#b16286',
+	grey   = '#928374',
+}
+
+
 local bubbles_theme = {
 	normal = {
-		a = { fg = colors.black, bg = colors.violet },
-		b = { fg = colors.white, bg = colors.grey },
-		c = { fg = colors.black, bg = colors.black },
+		a = { fg = colorsGruvbox.black, bg = colorsGruvbox.violet },
+		b = { fg = colorsGruvbox.black, bg = colorsGruvbox.grey },
+		c = { fg = colorsGruvbox.black, bg = colorsGruvbox.black },
 	},
 
-	insert = { a = { fg = colors.black, bg = colors.blue } },
-	visual = { a = { fg = colors.black, bg = colors.cyan } },
-	replace = { a = { fg = colors.black, bg = colors.red } },
+	insert = { a = { fg = colorsGruvbox.black, bg = colorsGruvbox.blue } },
+	visual = { a = { fg = colorsGruvbox.black, bg = colorsGruvbox.cyan } },
+	replace = { a = { fg = colorsGruvbox.black, bg = colorsGruvbox.red } },
 
 	inactive = {
-		a = { fg = colors.white, bg = colors.black },
-		b = { fg = colors.white, bg = colors.black },
-		c = { fg = colors.black, bg = colors.black },
+		a = { fg = colorsGruvbox.white, bg = colorsGruvbox.black },
+		b = { fg = colorsGruvbox.white, bg = colorsGruvbox.black },
+		c = { fg = colorsGruvbox.black, bg = colorsGruvbox.black },
 	},
 }
 
 require('lualine').setup {
-	options = {
-		theme = bubbles_theme,
-		component_separators = '|',
-		section_separators = { left = '', right = '' },
-	},
+	-- options = {
+	-- 	theme = bubbles_theme,
+	-- 	--component_separators = '|',
+	-- 	section_separators = { left = '', right = '' },
+	-- },
 	sections = {
 		lualine_a = {
-			{ 'mode', separator = { left = '' }, right_padding = 2 },
+			-- separator = { left = '' }, -- put in the table just below this line
+			{ 'mode',  right_padding = 2 },
 		},
 		lualine_b = { 'filename', 'branch' },
 		lualine_c = { 'fileformat' },
 		lualine_x = {},
 		lualine_y = { 'filetype', 'progress' },
 		lualine_z = {
-			{ 'location', separator = { right = '' }, left_padding = 2 },
+			-- separator = { right = '' } -- put in the table just below this line
+			{ 'location', left_padding = 2 },
 		},
 	},
 	inactive_sections = {

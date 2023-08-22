@@ -160,8 +160,7 @@ yay -S --noconfirm --needed mesa mesa-utils pipewire wireplumber \
 	noto-fonts noto-fonts-emoji noto-fonts-cjk lxsession-gtk3 lxappearance \
 	xdotool jq tidy rofi libinput-gestures tlp libnotify zsh zsh-autosuggestions \
 	zsh-syntax-highlighting pcmanfm-gtk3 unzip unrar xarchiver font-manager dash dashbinsh \
-	catppuccin-gtk-theme-mocha flameshot firefox-ublock-origin firefox-decentraleyes \
-	catppuccin-cursors-mocha
+	gruvbox-dark-gtk flameshot firefox-ublock-origin firefox-decentraleyes
 
 ln -sfT dash /usr/bin/sh
 
