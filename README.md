@@ -11,8 +11,11 @@ My configuration for QTile and bspwm
       - python-psutil
   - Wallpaper setter: QTile
   - Bar: QTile bar
-  - GTK Theme: catppuccin Mocha
-  - Cursor Theme: catppuccin cursors
+  - Catppuccin
+    - GTK Theme: catppuccin Mocha
+    - Cursor Theme: catppuccin cursors
+  - Gruvbox
+    - gruvbox-dark-gtk
   - Browser: Firefox
   - Notif daemon: dunst
   - Compositor: picom
@@ -27,11 +30,28 @@ My configuration for QTile and bspwm
     - `jq` and `tidy` for [rest.nvim](https://github.com/rest-nvim/rest.nvim)
     - xclip
   - lxsession, lxappearance, xdotool, unclutter
+
+
   Command to install dependencies in Arch Linux:
   ```
-  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr qtile qtile-extras python-psutil network-manager-applet cbatticon catppuccin-gtk-theme-mocha catppuccin-cursors-mocha firefox dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
+  yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr qtile qtile-extras python-psutil network-manager-applet cbatticon firefox dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
   ```
-  ## Gallery
+  ### Gruvbox
+  ```
+  yay -S --needed gruvbox-dark-gtk
+  ```
+  ### Catppuccin
+  ```
+  yay -S --needed catppuccin-cursors-mocha catppuccin-gtk-theme-mocha
+  ```
+
+  ## Gallery (Gruvbox)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/a7388977-7b84-43d2-8c7d-046277f77be1)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/df1f45b0-2cd8-4e9b-9180-1e75adb3851b)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/9b475beb-1f68-42ab-9a96-90959a709f9f)
+
+  
+  ## Gallery (Catppuccin)
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/ed69db26-04e4-4297-9883-9f11d6580e44)
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/7ec6e118-7d97-4796-a926-f48f9344aa86)
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/70fc3629-b209-4c8f-98b8-7caba8566c31)
