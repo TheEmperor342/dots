@@ -41,6 +41,7 @@ My configuration for QTile and bspwm
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/f9efdd24-935b-480a-8c96-2e6db5cefbac)
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/dbd8e035-2a50-4b4f-94b2-867a136e6a69)
   ![image](https://github.com/TheEmperor342/dots/assets/83999665/bd42305b-ecca-4c9d-9a51-62ed6d91e17a)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/cb9ba538-619a-47de-be70-180c7caac994)
 
 
 </details>
