@@ -36,25 +36,12 @@ My configuration for QTile and bspwm
   ```
   yay -S --needed xorg-server xorg-xinit xorg-xsetroot xorg-xrandr qtile qtile-extras python-psutil network-manager-applet cbatticon firefox dunst picom kitty brightnessctl zsh zsh-autosuggestions zsh-syntax-highlighting blueman python ttf-jetbrains-mono-nerd lxsession-gtk3 lxappearance xdotool neovim jq tidy xclip rofi alsa-utils
   ```
-  ### Gruvbox
-  ```
-  yay -S --needed gruvbox-dark-gtk
-  ```
-  ### Catppuccin
-  ```
-  yay -S --needed catppuccin-cursors-mocha catppuccin-gtk-theme-mocha
-  ```
-
-  ## Gallery (Gruvbox)
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/a7388977-7b84-43d2-8c7d-046277f77be1)
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/df1f45b0-2cd8-4e9b-9180-1e75adb3851b)
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/9b475beb-1f68-42ab-9a96-90959a709f9f)
-
   
-  ## Gallery (Catppuccin)
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/ed69db26-04e4-4297-9883-9f11d6580e44)
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/7ec6e118-7d97-4796-a926-f48f9344aa86)
-  ![image](https://github.com/TheEmperor342/dots/assets/83999665/70fc3629-b209-4c8f-98b8-7caba8566c31)
+  ## Gallery
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/f9efdd24-935b-480a-8c96-2e6db5cefbac)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/dbd8e035-2a50-4b4f-94b2-867a136e6a69)
+  ![image](https://github.com/TheEmperor342/dots/assets/83999665/bd42305b-ecca-4c9d-9a51-62ed6d91e17a)
+
 
 </details>
 
