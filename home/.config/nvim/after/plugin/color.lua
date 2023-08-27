@@ -46,6 +46,8 @@ require("catppuccin").setup({
 })
 
 
-vim.cmd.colorscheme "gruvbox"
--- vim.cmd.colorscheme "catppuccin"
+-- vim.cmd.colorscheme "everblush"
+-- vim.cmd.colorscheme "gruvbox"
+-- vim.cmd.colorscheme "onedark"
+vim.cmd.colorscheme "catppuccin"
 -- vim.cmd.colorscheme "NeoSolarized"

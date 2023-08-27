@@ -1,6 +1,6 @@
 @-moz-document url(about:newtab){
 .outer-wrapper {
-	background: #11111b !important;
+	background: #282828 !important;
 	background-repeat: no-repeat !important;
 	background-size: cover !important;
 
@@ -13,7 +13,7 @@
 
 @-moz-document url(about:home){
 .outer-wrapper {
-	background: #11111b !important;
+	background: #282828 !important;
 	background-repeat: no-repeat !important;
 	background-size: cover !important;
 
@@ -26,13 +26,13 @@
 @-moz-document url(about:blank){
 html {
 	height: 100vh !important;
-	background-color: #11111b !important;
+	background-color: #282828 !important;
 }
 }
 
 .neterror {
-	background-color: #11111b !important;
+	background-color: #282828 !important;
 }
 .search-wrapper .search-handoff-button, .search-wrapper input  {
-	background: #313244 var(--newtab-search-icon) 16px center no-repeat !important;
+	background: #3c3836 var(--newtab-search-icon) 16px center no-repeat !important;
 }

@@ -29,14 +29,15 @@ from qtile_extras import widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile import hook, qtile
-from qtile_extras.widget.decorations import RectDecoration
+from qtile_extras.widget.decorations import PowerLineDecoration
+from qtile_extras.resources import wallpapers
 
 import os
 import subprocess
 
 HOME = os.path.expanduser("~")
-WALLPAPER = "~/.config/Wallpapers/gruvbox.png"
-LOGO = "~/.config/qtile/logos/gruvbox-logo.png"
+WALLPAPER = "~/.config/Wallpapers/catppuccin/astronaut.png"
+LOGO = "~/.config/qtile/logos/catppuccin-logo.png"
 catppuccin = {
     "crust": "#11111B",
     "mantle": "#181825",
@@ -88,7 +89,7 @@ solarized = {
     "muave": "#d33682",
 }
 gruvbox = {
-    "crust": "#1d2021",
+    "crust": "#282828",
     "mantle": "#282828",
     "base": "#282828",
     "surface0": "#3c3836",
@@ -112,27 +113,53 @@ gruvbox = {
     "maroon": "#fb4934",
     "muave": "#b16286",
 }
+everblush = {
+    "crust": "#141b1e",
+    "mantle": "#141b1e",
+    "base": "#232a2d",
+    "surface0": "#3c3836",
+    "surface1": "#232a2d",
+    "surface2": "#232a2d",
+    "overlay0": "#b3b9b8",
+    "overlay1": "#b3b9b8",
+    "overlay2": "#b3b9b8",
+    "subtext0": "#b3b9b8",
+    "subtext1": "#b3b9b8",
+    "text": "#dadada",
+    "lavender": "#c47fd5",
+    "blue": "#67b0e8",
+    "sapphire": "#67b0e8",
+    "sky": "#6cbfbf",
+    "teal": "#6cbfbf",
+    "green": "#8ccf7e",
+    "yellow": "#e5c76b",
+    "peach": "#e5c76b",
+    "red": "#e57474",
+    "maroon": "#e57474",
+    "muave": "#c47fd5",
+}
 
-colors = gruvbox
+colors = catppuccin
 DEFAULT_LAYOUTS = {
-    "margin": 7,
+    "margin": 5,
     "font": "JetBrainsMono Nerd Font",
     "fontsize": 9,
     "border_width": 1,
-    "border_focus": colors["surface1"],
-    "border_normal": colors["surface0"],
+    "border_focus": colors["surface0"],
+    "border_normal": colors["base"],
 }
 
 
 def DEFAULT_DECORATIONS(color: str = colors["mantle"]) -> dict:
     return {
+        "background": color,
         "decorations": [
-            RectDecoration(
-                colour=color,
-                radius=4,
-                filled=True,
-                padding_y=4,
-                group=True
+            PowerLineDecoration(
+                path="forward_slash"
+                # radius=4,
+                # filled=True,
+                # padding_y=4,
+                # group=True
             )
         ]
     }
@@ -240,17 +267,12 @@ widget_defaults = dict(
 )
 bar = bar.Bar(
     [
-        widget.Sep(
-            linewidth=0,
-            padding=15
-        ),
         widget.Image(
-            filename=LOGO
+            filename=LOGO,
+            **DEFAULT_DECORATIONS(colors["subtext0"]),
+            margin_x=15
         ),
-        widget.Sep(
-            linewidth=0,
-            padding=15
-        ),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["text"]), linewidth=0, padding=5),
         widget.GroupBox(
             fontsize=10,
             margin_y=3,
@@ -264,23 +286,23 @@ bar = bar.Bar(
             this_current_screen_border=colors["overlay2"],
             **DEFAULT_DECORATIONS(colors["text"])
         ),
-        widget.Sep(
-            linewidth=0,
-            padding=15
-        ),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["text"]), linewidth=0, padding=5),
         widget.Spacer(),
         widget.Sep(
+            **DEFAULT_DECORATIONS(colors["crust"]),
             linewidth=0,
-            padding=15
+            padding=1
         ),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["teal"]), linewidth=0, padding=2),
         widget.GenPollText(
             update_interval=10,
             func=lambda: subprocess.check_output(
                 f"{HOME}/.local/bin/getram").decode("utf-8"),
             fmt=" 󰍛 {}%",
             foreground=colors["crust"],
-            **DEFAULT_DECORATIONS(colors["sapphire"])
+            **DEFAULT_DECORATIONS(colors["teal"])
         ),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["teal"]), linewidth=0, padding=2),
         # widget.GenPollText(
         #     update_interval=10,
         #     func=lambda: subprocess.check_output(
@@ -289,14 +311,18 @@ bar = bar.Bar(
         #     foreground=colors["text"],
         #     **DEFAULT_DECORATIONS
         # ),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["sky"]), linewidth=0, padding=2),
         widget.Volume(
-            fmt="| 󰕾 {}",
+            fmt=" 󰕾 {}",
             font='JetBrainsMono Nerd Font',
             foreground=colors["crust"],
-            **DEFAULT_DECORATIONS(colors["sapphire"])
+            padding=15,
+            **DEFAULT_DECORATIONS(colors["sky"])
         ),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["sky"]), linewidth=0, padding=2),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["sapphire"]), linewidth=0, padding=2),
         widget.Backlight(
-            fmt="| 󰃠  {} ",
+            fmt=" 󰃠  {} ",
             foreground=colors["crust"],
             change_command="brightnessctl s {0}",
             brightness_file="/sys/class/backlight/intel_backlight/brightness",
@@ -308,26 +334,29 @@ bar = bar.Bar(
             },
             **DEFAULT_DECORATIONS(colors["sapphire"])
         ),
-        widget.Sep(
-            linewidth=0,
-            padding=15
-        ),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["sapphire"]), linewidth=0, padding=2),
+        # widget.Sep(
+        #    linewidth=0,
+        #    padding=15
+        # ),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["blue"]), linewidth=0, padding=2),
         widget.Clock(
             foreground=colors["crust"],
             format="   %I:%M %p ",
-            **DEFAULT_DECORATIONS(colors["yellow"])
+            **DEFAULT_DECORATIONS(colors["blue"])
         ),
-        widget.Sep(
-            linewidth=0,
-            padding=5
-        ),
+        widget.Sep(**DEFAULT_DECORATIONS(colors["blue"]), linewidth=0, padding=2),
+        # widget.Sep(
+        #    linewidth=0,
+        #    padding=5
+        # ),
         widget.Systray(),
         widget.Sep(
             linewidth=0,
             padding=15
         ),
     ],
-    34,
+    24,
     background=colors["crust"]
 )
 
